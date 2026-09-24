@@ -195,7 +195,7 @@ html.anim .rv-h:not(.in){opacity:0}
 .ticket-wrap{filter:drop-shadow(0 0 1px rgba(6,6,12,.55)) drop-shadow(0 0 .5px rgba(6,6,12,.4)) drop-shadow(0 24px 40px rgba(6,6,12,.16)) drop-shadow(0 6px 12px rgba(6,6,12,.06));transition:transform .25s ease,filter .25s ease}
 .ticket-wrap:hover{transform:translateY(-6px) rotate(-.4deg);filter:drop-shadow(0 0 1px rgba(6,6,12,.6)) drop-shadow(0 0 .5px rgba(6,6,12,.45)) drop-shadow(0 34px 50px rgba(6,6,12,.22)) drop-shadow(0 8px 16px rgba(6,6,12,.08))}
 .ticket-wrap.vip-wrap:hover{transform:translateY(-6px) rotate(.4deg)}
-.day{--stub:196px;--notch:15px;position:relative;height:100%;background:#fff;border-radius:14px;display:flex;flex-direction:column;overflow:hidden;
+.day{--stub:132px;--notch:15px;position:relative;height:100%;background:#fff;border-radius:14px;display:flex;flex-direction:column;overflow:hidden;
   -webkit-mask:radial-gradient(circle var(--notch) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat;
   mask:radial-gradient(circle var(--notch) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat}
 .band{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 30px;background:var(--ink);font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
@@ -205,22 +205,23 @@ html.anim .rv-h:not(.in){opacity:0}
 .vip .band b{color:#fff}
 .day .body{padding:26px 30px 24px;flex:1;display:flex;flex-direction:column;position:relative}
 .day h3{font-size:clamp(24px,1.8vw,32px);font-weight:600;margin-top:4px}
-.day ul{list-style:none;margin:22px 0 24px;display:grid;gap:12px;flex:1}
+.day ul{list-style:none;margin:20px 0 24px;padding-top:20px;border-top:1px solid var(--line-soft);display:grid;gap:12px;flex:1}
 .day li{position:relative;padding-left:26px;font-size:16px}
 .day li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:2px;background:var(--signal)}
 .tear{position:relative;height:0;border-top:2px dashed #9FB3CC;margin:0 calc(var(--notch) + 8px)}
-.stub{height:var(--stub);padding:22px 30px 26px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#F7F9FD,#EDF2FA)}
+.stub{height:var(--stub);padding:18px 30px 24px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#F7F9FD,#EDF2FA)}
 .vip .stub{background:linear-gradient(180deg,#F2F7FF,#E1ECFF)}
-.stub-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-.price{font-family:var(--display);font-size:clamp(40px,3vw,54px);font-weight:700;color:var(--ink);letter-spacing:-.03em;line-height:.9}
-.price small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--slate);text-transform:uppercase;margin-top:8px;font-weight:500}
+.stub-row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.stub .code{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--slate);text-transform:uppercase}
+.price{display:flex;align-items:baseline;gap:14px;margin:14px 0 4px;font-family:var(--display);font-size:clamp(60px,5.4vw,96px);font-weight:700;color:var(--ink);letter-spacing:-.045em;line-height:.9}
+.price small{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--slate);text-transform:uppercase;font-weight:600}
 .vip .price{color:var(--signal)}
 .barcode{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
-.barcode i{display:block;width:132px;height:40px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,#0000 2px 4px,var(--ink) 4px 5px,#0000 5px 8px,var(--ink) 8px 11px,#0000 11px 12px,var(--ink) 12px 13px,#0000 13px 16px,var(--ink) 16px 17px,#0000 17px 19px,var(--ink) 19px 22px,#0000 22px 23px);opacity:.85}
+.barcode i{display:block;width:96px;height:24px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,#0000 2px 4px,var(--ink) 4px 5px,#0000 5px 8px,var(--ink) 8px 11px,#0000 11px 12px,var(--ink) 12px 13px,#0000 13px 16px,var(--ink) 16px 17px,#0000 17px 19px,var(--ink) 19px 22px,#0000 22px 23px);opacity:.85}
 .barcode span{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--slate)}
 .day .btn{width:100%}
 .day .seats{margin:0}
-@media (max-width:960px){.days{padding:14px;border-radius:18px}.day{--stub:188px}.band,.day .body,.stub{padding-left:22px;padding-right:22px}.barcode i{width:104px}}
+@media (max-width:960px){.days{padding:14px;border-radius:18px}.day{--stub:128px}.band,.day .body,.stub{padding-left:22px;padding-right:22px}.barcode i{width:80px}}
 
 /* speaker */
 .speaker{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:64px;align-items:center}
@@ -410,6 +411,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
         <div class="band"><b><img class="band-logo" src="assets/sarvx-logo.png" alt="SarvX Group">Admit one</b><span>Day 1 · General admission</span></div>
         <div class="body">
         <h3>The live training</h3>
+        <div class="price">Free<small>General admission</small></div>
         <ul>
           <li>The full live virtual sales training</li>
           <li>The complete five-step sales process</li>
@@ -420,7 +422,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
         </div>
         <div class="tear" aria-hidden="true"></div>
         <div class="stub">
-          <div class="stub-row"><div class="price">Free<small>General admission</small></div><div class="barcode" aria-hidden="true"><i></i><span>SLL · GA · D1</span></div></div>
+          <div class="stub-row"><span class="code">SLL · GA · D1 · 2026</span><div class="barcode" aria-hidden="true"><i></i></div></div>
           <a class="btn ghost" href="#register" data-ticket="0">Reserve free seat</a>
         </div>
       </div></div>
@@ -428,6 +430,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
         <div class="band"><b><img class="band-logo" src="assets/sarvx-logo.png" alt="SarvX Group">Admit one · VIP</b><span>Day 2 · VIP</span></div>
         <div class="body">
         <h3>The implementation workshop</h3>
+        <div class="price">$99<small>One-time</small></div>
         <ul>
           <li>Everything in general admission</li>
           <li>Join Elias live in a smaller workshop group</li>
@@ -438,7 +441,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
         </div>
         <div class="tear" aria-hidden="true"></div>
         <div class="stub">
-          <div class="stub-row"><div class="price">$99<small>One-time</small></div><div class="barcode" aria-hidden="true"><i></i><span>SLL · VIP · D2</span></div></div>
+          <div class="stub-row"><span class="code">SLL · VIP · D2 · 2026</span><div class="barcode" aria-hidden="true"><i></i></div></div>
           <a class="btn primary" href="#register" data-ticket="1">Get VIP access</a>
         </div>
       </div></div>
