@@ -83,8 +83,9 @@ html.anim .rv-h:not(.in){opacity:0}
 @media (min-width:1600px){.idea p,.lead{font-size:20px}.topic h3{font-size:22px}.topic p,.how span{font-size:16px}.day li{font-size:17px}.day h3{font-size:30px}}
 
 /* hero */
-.hero{padding:clamp(48px,7vw,88px) 0 clamp(56px,8vw,96px);position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero{padding:clamp(36px,5vw,72px) 0 clamp(56px,7vw,96px);position:relative;overflow:hidden}
+.hero-grid{display:block;max-width:1180px}
+.hero .vsl-col{gap:26px}
 .status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:2px;padding:7px 12px;background:#fff}
 .status i{width:7px;height:7px;border-radius:50%;background:var(--signal)}
 .hero h1{font-size:clamp(46px,6.2vw,112px);font-weight:700;letter-spacing:-.035em;margin:22px 0 22px}
@@ -103,6 +104,7 @@ html.anim .rv-h:not(.in){opacity:0}
 .vsl-head{text-align:center}
 .vsl-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(30,120,255,.35);background:rgba(30,120,255,.06);border-radius:999px;padding:9px 18px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--signal-ink)}
 .vsl-pill i{width:7px;height:7px;border-radius:50%;background:var(--signal)}
+.hero h1.vsl-title{margin:0;letter-spacing:-.01em;font-size:clamp(28px,3.6vw,60px)}
 .vsl-title{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;color:var(--ink);font-size:clamp(22px,2.2vw,40px)}
 .vsl-title .accent{display:block}
 .vsl-title small{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(11px,.85vw,14px);letter-spacing:.16em;color:var(--slate);margin-top:12px}
@@ -114,6 +116,7 @@ html.anim .rv-h:not(.in){opacity:0}
 .vsl-langs button:hover{color:var(--ink)}
 .vsl-langs button[aria-pressed="true"]{color:var(--signal);border-bottom-color:var(--signal)}
 .vsl-langs button[aria-pressed="true"] b{color:var(--signal)}
+.hero .big-cta{max-width:820px;margin:0 auto}
 .big-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:clamp(18px,1.6vw,26px) 28px;border-radius:999px;text-decoration:none;color:#fff;
   font-family:var(--display);font-weight:700;font-size:clamp(17px,1.5vw,24px);letter-spacing:.02em;text-transform:uppercase;
   background:linear-gradient(100deg,#3B8BFF 0%,#1E78FF 35%,#1560D6 70%,#0E4BAE 100%);
@@ -310,25 +313,9 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
 <!-- HERO -->
 <header class="hero">
   <div class="wrap hero-grid">
-    <div>
-      <span class="status label"><i></i>Free live virtual training · Northern California</span>
-      <h1>Sell like<br>a <span class="accent">leader.</span></h1>
-      <p class="sub">A free, live virtual sales training for salespeople and business owners across Northern California, built on one idea: great selling is leadership.</p>
-      <div class="host"><img src="assets/elias.jpg" alt="Elias Saracco"><div><b>Hosted by Elias Saracco</b><span>Founder, SarvX Group</span></div></div>
-      <div class="ctas">
-        <a class="btn signal" href="#register">Reserve my free seat →</a>
-        <a class="btn ghost" href="#format">See the format</a>
-      </div>
-      <div data-noi18n><div class="left" data-left hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M15 6v12" stroke-dasharray="2 2"/></svg><span></span></div></div>
-      <div class="facts">
-        <div><b data-date>Dates announced soon</b><span>Two-day format</span></div>
-        <div><b>Live online</b><span>Join from anywhere</span></div>
-        <div><b>Free</b><span>VIP workshop $99</span></div>
-      </div>
-    </div>
     <div class="vsl-col">
     <div class="vsl-head">
-      <div class="vsl-title">Sell Like a Leader Sales Training <span class="accent">Free Virtual Experience</span><small>2026 — Live online · December</small></div>
+      <h1 class="vsl-title">Sell Like a Leader Sales Training <span class="accent">Free Virtual Experience</span><small>2026 — Live online · December</small></h1>
     </div>
     <div class="vsl">
       <div class="frame" id="vsl">
@@ -635,8 +622,10 @@ function renderSeats() {
   const sel = document.getElementById('ticket');
   if (sel.options[sel.selectedIndex].disabled) { const other = [...sel.options].findIndex(o => !o.disabled); if (other >= 0) sel.selectedIndex = other; }
   const heroLeft = document.querySelector('[data-left]'), gl = seatsLeft('ga');
-  heroLeft.hidden = gl == null;
-  if (gl != null) heroLeft.querySelector('span').innerHTML = gl === 0 ? T.gaSoldOut : T.heroLeft(fmt(gl));
+  if (heroLeft) {
+    heroLeft.hidden = gl == null;
+    if (gl != null) heroLeft.querySelector('span').innerHTML = gl === 0 ? T.gaSoldOut : T.heroLeft(fmt(gl));
+  }
   const allOut = seatsLeft('ga') === 0 && seatsLeft('vip') === 0;
   form.querySelector('button[type=submit]').classList.toggle('disabled', allOut);
   const so = document.getElementById('soldout');
