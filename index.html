@@ -203,6 +203,8 @@ html.anim .rv-h:not(.in){opacity:0}
 .band-logo{width:30px;height:30px;border-radius:6px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
 .vip .band{background:var(--signal);color:rgba(255,255,255,.85)}
 .vip .band b{color:#fff}
+.vip .band{padding-right:110px}
+.ribbon{position:absolute;z-index:3;top:22px;right:-44px;width:170px;transform:rotate(45deg);text-align:center;padding:8px 0;background:var(--ink);color:#fff;font:700 12px var(--mono);letter-spacing:.28em;text-transform:uppercase;box-shadow:0 6px 14px -4px rgba(6,6,12,.45);border-top:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35)}
 .day .body{padding:clamp(34px,3vw,48px) clamp(26px,2.4vw,40px) 34px;flex:1;display:flex;flex-direction:column;position:relative}
 .day h3{font-size:clamp(24px,1.8vw,32px);font-weight:600;margin-top:4px}
 .day ul{list-style:none;margin:28px 0 32px;padding-top:28px;align-content:start;gap:18px!important;border-top:1px solid var(--line-soft);display:grid;gap:12px;flex:1}
@@ -427,6 +429,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
         </div>
       </div></div>
       <div class="ticket-wrap vip-wrap"><div class="day vip">
+        <div class="ribbon" aria-hidden="true">VIP</div>
         <div class="band"><b><img class="band-logo" src="assets/sarvx-logo.png" alt="SarvX Group">Admit one · VIP</b><span>Day 2 · VIP</span></div>
         <div class="body">
         <h3>The implementation workshop</h3>
