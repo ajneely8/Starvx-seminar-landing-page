@@ -1,0 +1,5 @@
+# private: seat-counter reset keys
+counter-admin-keys.txt
+
+# render scratch
+creatives/_*.html

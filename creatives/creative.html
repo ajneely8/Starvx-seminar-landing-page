@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Creative</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+/* Edit these, then run:  node render.mjs */
+window.EVENT = {
+  date:  "Dates announced soon",   // e.g. "Nov 12–13, 2026"
+  where: "Live online",
+  vip:   "$99",
+  url:   "sarvx.io",               // registration URL shown on flyers
+};
+</script>
+<style>
+:root{--ink:#06060C;--ink-2:#1A1A24;--slate:#54718E;--line:#C3D2E6;--soft:#E3EAF4;--paper:#fff;--paper-2:#F5F7FC;--signal:#1E78FF}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#fff}
+body{font-family:'Inter Tight',sans-serif;color:var(--ink-2);-webkit-font-smoothing:antialiased}
+.canvas{position:relative;width:100vw;height:100vh;overflow:hidden;background:var(--paper)}
+.content{position:absolute;display:flex;flex-direction:column}
+.label{font-family:'JetBrains Mono',monospace;font-size:1.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);white-space:nowrap}
+.status{display:inline-flex;align-self:flex-start;align-items:center;gap:1.2rem;border:.15rem solid var(--line);border-radius:.3rem;padding:1.1rem 1.6rem;background:#fff}
+.status i{width:1rem;height:1rem;border-radius:50%;background:var(--signal)}
+h1{font-family:'Noto Sans Display',sans-serif;font-weight:700;color:var(--ink);letter-spacing:-.035em;line-height:1.02}
+.accent{color:var(--signal)}
+.sub{font-size:3.3rem;line-height:1.4;color:var(--ink-2)}
+.logo{height:8rem;display:block;border-radius:.5rem}
+.facts{display:flex;border-top:.15rem solid var(--soft)}
+.facts div{padding:2rem 3.2rem 0 0;margin-right:3.2rem;border-right:.15rem solid var(--soft)}
+.facts div:last-child{border-right:0;margin-right:0}
+.facts b{display:block;font-size:2.9rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.facts span{font-size:2.1rem;color:var(--slate);white-space:nowrap}
+.cta{display:inline-flex;align-items:center;gap:1.4rem;align-self:flex-start;background:var(--signal);color:#fff;font-weight:600;font-size:3rem;padding:2.2rem 3.4rem;border-radius:.4rem;white-space:nowrap}
+.photo{position:absolute;background:#C8D8E8;overflow:hidden}
+.photo img.head{position:absolute}
+.photo.side img.head{inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.photo.band img.head{right:0;bottom:0;height:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%);mask-image:linear-gradient(90deg,transparent,#000 18%)}
+.photo .mark{position:absolute;z-index:1;width:8rem;right:3rem;top:3rem;border-radius:.5rem}
+.photo .who{position:absolute;z-index:1;color:var(--ink)}
+.photo.side .who{left:3rem;right:3rem;bottom:3rem;background:rgba(255,255,255,.94);border-radius:.4rem;padding:2rem 2.4rem}
+.photo.band .who{left:7rem;top:50%;transform:translateY(-50%)}
+.photo .who .label{display:block;margin-bottom:1rem;color:#1560D6}
+.photo .who b{display:block;font-family:'Noto Sans Display',sans-serif;font-size:4rem;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.photo .who span{font-size:2.4rem;color:var(--slate)}
+.bracket{position:absolute;width:5rem;height:5rem;border:.3rem solid var(--signal);z-index:2}
+.bracket.tl{border-right:0;border-bottom:0}
+.topics{list-style:none;display:grid;border:.15rem solid var(--line);border-radius:.4rem;background:#fff}
+.topics li{display:flex;align-items:center;gap:2.4rem;padding:1.9rem 2.6rem;border-bottom:.15rem solid var(--soft);font-size:3rem;font-weight:600;color:var(--ink)}
+.topics li:last-child{border-bottom:0}
+.topics li em{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:2rem;color:var(--signal);font-weight:500}
+.spacer{flex:1}
+.row{display:flex;align-items:center;justify-content:space-between;gap:3rem}
+</style>
+</head>
+<body>
+<div class="canvas" id="c"></div>
+<script>
+const p = new URLSearchParams(location.search);
+const W = innerWidth, H = innerHeight, r = W / H;
+const concept = p.get('c') || 'a';
+document.documentElement.style.fontSize = (Math.min(W, H) / (r >= 3 ? 50 : 100)) + 'px';
+const E = window.EVENT;
+const c = document.getElementById('c');
+const layout = r >= 3 ? 'strip' : r >= 1.6 ? 'wide' : r > 0.9 ? 'square' : r > 0.7 ? (p.get('flyer') ? 'flyer' : 'portrait') : 'story';
+
+const logo = `<img class="logo" src="../assets/sarvx-logo.png" alt="SarvX Group">`;
+const status = `<div class="status label"><i></i>Free live virtual training</div>`;
+const photo = (style, who = true, kind = 'band') => `<div class="photo ${kind}" style="${style}">
+  <img class="head" src="../assets/elias.jpg" alt="Elias Saracco">
+  ${who ? `<div class="who">${kind === 'band' ? '<span class="label">Your trainer</span>' : ''}<b>Elias Saracco</b><span>Founder, SarvX Group</span></div>` : ''}
+  ${kind === 'side' ? '<img class="mark" src="../assets/sarvx-logo.png" alt="">' : ''}</div>`;
+const facts = (n = 3) => `<div class="facts">
+  <div><b>${E.date}</b><span>Two-day format</span></div>
+  <div><b>Free</b><span>VIP workshop ${E.vip}</span></div>
+  ${n > 2 ? `<div><b>${E.where}</b><span>Northern California</span></div>` : ''}</div>`;
+const cta = t => `<div class="cta">${t} →</div>`;
+const topics = `<ul class="topics">
+  <li><em>01</em>The art of sales</li><li><em>02</em>Negotiation psychology</li><li><em>03</em>Ethical selling</li>
+  <li><em>04</em>Sales leadership</li><li><em>05</em>Objection prevention</li></ul>`;
+const HL = {
+  a: `Sell like<br>a <span class="accent">leader.</span>`,
+  b: `Stop chasing the close. <span class="accent">Lead the conversation.</span>`,
+  c: `Five skills.<br><span class="accent">One process.</span>`,
+};
+const SUB = {
+  a: `A free, live virtual sales training for Northern California salespeople and business owners.`,
+  b: `A free, live virtual sales training for Northern California salespeople and business owners.`,
+  c: `Learn the complete five-step sales process, free and live.`,
+};
+
+let html = '';
+if (layout === 'strip') {
+  const banner = !!p.get('banner');   // LinkedIn profile banner: keep the left ~25% clear for the profile photo
+  html = `${photo(`right:0;top:0;bottom:0;width:30%`, false, 'side')}
+  <div class="content" style="left:${banner ? '26%' : '4.5%'};right:33%;top:0;bottom:0;justify-content:center;gap:2.4rem">
+    <div class="row" style="justify-content:flex-start;gap:2.4rem"><div class="label" style="font-size:1.7rem;color:var(--signal)">Free live virtual training</div><div class="label" style="font-size:1.7rem">${E.date}</div></div>
+    <h1 style="font-size:13rem;white-space:nowrap">Sell like a <span class="accent">leader.</span></h1>
+    <div class="row" style="justify-content:flex-start;gap:2.4rem"><img src="../assets/sarvx-logo.png" style="height:6rem;border-radius:.4rem" alt=""><div style="font-size:2.4rem;color:var(--slate);white-space:nowrap">with Elias Saracco · Day 2 VIP workshop ${E.vip}</div></div>
+  </div>`;
+} else if (layout === 'wide') {
+  html = `${photo(`right:0;top:0;bottom:0;width:36%`, true, 'side')}
+  <div class="bracket tl" style="left:3rem;top:3rem"></div>
+  <div class="content" style="left:7.5rem;right:calc(36% + 6rem);top:7rem;bottom:7rem">
+    <div class="row">${logo}</div>
+    <div class="spacer"></div>
+    ${status}
+    <h1 style="font-size:${concept === 'b' ? 12 : 15}rem;margin:3rem 0 2.6rem">${HL[concept]}</h1>
+    ${concept === 'c' ? '' : `<p class="sub" style="font-size:3rem">${SUB[concept]}</p>`}
+    <div class="spacer"></div>
+    <div class="row" style="align-items:flex-end">${facts(2)}${cta('Reserve a seat')}</div>
+  </div>`;
+} else if (layout === 'square') {
+  const withList = concept === 'c';
+  html = `${withList ? '' : photo(`left:0;right:0;top:0;height:30%`)}
+  <div class="content" style="left:7rem;right:7rem;top:${withList ? '7rem' : 'calc(30% + 5rem)'};bottom:7rem">
+    <div class="row">${withList ? logo + status : status + logo}</div>
+    <div class="spacer"></div>
+    <h1 style="font-size:${concept === 'b' ? 9.5 : 12}rem">${HL[concept]}</h1>
+    ${withList ? `<div style="margin-top:3.6rem">${topics}</div>` : `<p class="sub" style="margin-top:2.6rem">${SUB[concept]}</p>`}
+    <div class="spacer"></div>
+    <div class="row" style="align-items:flex-end">${facts(2)}${cta(withList ? 'Free seat' : 'Reserve a seat')}</div>
+  </div>
+  ${withList ? '' : `<div class="bracket tl" style="left:3rem;top:3rem;border-color:var(--signal)"></div>`}`;
+} else if (layout === 'portrait' || layout === 'flyer') {
+  const flyer = layout === 'flyer', withList = concept === 'c' || flyer;
+  const ph = withList ? (flyer ? 24 : 0) : 34;
+  html = `${ph ? photo(`left:0;right:0;top:0;height:${ph}%`) : ''}
+  ${ph ? `<div class="bracket tl" style="left:3rem;top:3rem;border-color:var(--signal)"></div>` : ''}
+  <div class="content" style="left:7rem;right:7rem;top:${ph ? `calc(${ph}% + 5rem)` : '7rem'};bottom:7rem">
+    <div class="row">${ph ? status + logo : logo + status}</div>
+    <div class="spacer" style="max-height:6rem"></div>
+    <h1 style="font-size:${concept === 'b' ? 10.5 : 13}rem">${HL[concept]}</h1>
+    <p class="sub" style="margin-top:2.6rem">${SUB[concept]}</p>
+    ${withList ? `<div style="margin-top:3.6rem">${topics}</div>` : ''}
+    <div class="spacer"></div>
+    ${facts(flyer ? 3 : 2)}
+    <div class="row" style="margin-top:4rem">${cta(flyer ? 'Register free' : 'Reserve a seat')}${flyer ? `<div style="text-align:right"><b style="font-size:3.2rem;color:var(--ink)">${E.url}</b><div style="font-size:2.4rem;color:var(--slate)">(916) 500-8503</div></div>` : ''}</div>
+  </div>`;
+} else { // story 9:16: keep the top ~14% and bottom ~20% free of key text
+  const withList = concept === 'c';
+  html = `${withList ? '' : photo(`left:0;right:0;top:0;height:36%`)}
+  <div class="content" style="left:8rem;right:8rem;top:${withList ? 14 : 40}%;bottom:21%">
+    ${withList ? `<div class="row">${logo}</div><div class="spacer" style="max-height:5rem"></div>` : ''}
+    <div class="row">${status}</div>
+    <div class="spacer" style="max-height:5rem"></div>
+    <h1 style="font-size:${concept === 'b' ? 11 : 14}rem">${HL[concept]}</h1>
+    <p class="sub" style="margin-top:3rem;font-size:3.6rem">${SUB[concept]}</p>
+    ${withList ? `<div style="margin-top:4rem">${topics}</div>` : ''}
+    <div class="spacer"></div>
+    ${facts(2)}
+    <div style="margin-top:4.5rem">${cta('Reserve a seat')}</div>
+  </div>`;
+}
+c.innerHTML = html;
+
+// Shrink the headline until everything fits (no overflow, no overlap)
+document.fonts.ready.then(() => {
+  const h1 = c.querySelector('h1'), box = c.querySelector('.content');
+  let size = parseFloat(getComputedStyle(h1).fontSize); const floor = size * 0.55;
+  const over = () => box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1 || h1.scrollWidth > h1.clientWidth + 1;
+  while (over() && size > floor) { size *= 0.96; h1.style.fontSize = size + 'px'; }
+});
+</script>
+</body>
+</html>

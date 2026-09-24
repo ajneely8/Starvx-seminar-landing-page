@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sell Like a Leader | Free Virtual Sales Training | SarvX Group</title>
+<meta name="description" content="A free, live virtual sales training for Northern California salespeople and business owners, hosted by Elias Saracco of SarvX Group. Great selling is leadership.">
+<meta property="og:title" content="Sell Like a Leader | Free Virtual Sales Training">
+<meta property="og:description" content="Free, live, virtual. Learn a five-step sales process built on one idea: great selling is leadership.">
+<meta property="og:image" content="creatives/png/linkedin-feed-1200x627.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06060C; --ink-2:#1A1A24; --slate:#54718E; --line:#C3D2E6; --line-soft:#E3EAF4;
+  --paper:#FFFFFF; --paper-2:#F5F7FC; --signal:#1E78FF; --signal-ink:#1560D6;
+  --display:'Noto Sans Display',system-ui,sans-serif; --sans:'Inter Tight',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink-2);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:2240px;margin:0 auto;padding:0 clamp(20px,3.5vw,72px)}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+h1,h2,h3{font-family:var(--display);color:var(--ink);letter-spacing:-.02em;line-height:1.08}
+h2{font-size:clamp(30px,3.4vw,60px);font-weight:600;margin:12px 0 14px}
+.lead{font-size:18px;color:var(--slate);max-width:640px}
+.accent{color:var(--signal)}
+section{padding:clamp(64px,9vw,112px) 0}
+.alt{background:var(--paper-2)}
+.head{max-width:900px;margin-bottom:48px}
+.head.center{margin:0 auto 48px;text-align:center}
+.head.center .lead{margin:0 auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:15px;padding:15px 24px;border-radius:var(--r);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.btn.primary{background:var(--signal);color:#fff}
+.btn.primary:hover{background:#4A93FF}
+.btn.primary:active{background:#6AA7FF}
+.btn.signal{background:var(--signal);color:#fff}
+.btn.signal:hover{background:#4A93FF}
+.btn.signal:active{background:#6AA7FF}
+.btn:focus{outline:none}
+.btn:focus-visible{box-shadow:0 0 0 3px rgba(30,120,255,.25)}
+.btn.ghost{border-color:var(--line);color:var(--ink);background:#fff}
+.btn.ghost:hover{border-color:var(--signal);color:var(--signal)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+nav img{height:40px;border-radius:4px}
+nav .links{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500}
+nav .links a{text-decoration:none;color:var(--ink-2)}
+nav .links a:hover{color:var(--signal)}
+nav .btn{padding:10px 16px;font-size:14px}
+.lang{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 4px 4px 10px;background:#fff}
+.lang svg{width:16px;height:16px;color:var(--slate);flex:none}
+.lang button{font:600 12px/1 var(--mono);letter-spacing:.08em;border:0;background:none;color:var(--slate);padding:7px 9px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--signal);color:#fff}
+.lang button:not([aria-pressed="true"]):hover{color:var(--ink)}
+.seats{margin:-8px 0 24px}
+.seats .bar{height:6px;background:var(--line-soft);border-radius:3px;overflow:hidden}
+.seats .bar i{display:block;height:100%;width:0;background:var(--signal);border-radius:3px;transition:width .6s ease}
+.seats .txt{display:flex;justify-content:space-between;margin-top:9px;font-size:13px;color:var(--slate)}
+.seats .txt b{color:var(--ink);font-weight:600}
+.seats.out .bar i{background:var(--slate)}
+.left{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:8px 14px 8px 11px;border:1px solid rgba(30,120,255,.28);background:rgba(30,120,255,.06);border-radius:999px;font-size:14px;font-weight:500;color:var(--signal-ink)}
+.left svg{width:17px;height:17px;flex:none;color:var(--signal)}
+.left b{font-weight:700;color:var(--signal)}
+.btn.disabled{pointer-events:none;opacity:.45}
+.soldout{display:none;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;font-size:14px;color:var(--ink);background:var(--paper-2)}
+[hidden]{display:none!important}
+/* entrance animations (only when JS adds .anim to <html>) */
+html.anim .rv{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+html.anim .rv.in{opacity:1;transform:none}
+html.anim .rv-h:not(.in){opacity:0}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.split .w>span{display:inline-block;transform:translateY(110%);animation:wordUp .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes wordUp{to{transform:none}}
+@media (min-width:1600px){.idea p,.lead{font-size:20px}.topic h3{font-size:22px}.topic p,.how span{font-size:16px}.day li{font-size:17px}.day h3{font-size:30px}}
+
+/* hero */
+.hero{padding:clamp(48px,7vw,88px) 0 clamp(56px,8vw,96px);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:2px;padding:7px 12px;background:#fff}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--signal)}
+.hero h1{font-size:clamp(46px,6.2vw,112px);font-weight:700;letter-spacing:-.035em;margin:22px 0 22px}
+.hero p.sub{font-size:clamp(18px,1.3vw,22px);color:var(--ink-2);max-width:640px}
+.host{display:flex;align-items:center;gap:12px;margin-top:26px}
+.host img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center 20%;background:#C8D8E8;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.host b{display:block;font-size:15px;color:var(--ink);font-weight:600;line-height:1.3}
+.host span{font-size:13px;color:var(--slate)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid var(--line-soft)}
+.facts div{padding:16px 20px 0 0;margin-right:20px}
+.facts b{display:block;font-size:15px;color:var(--ink);font-weight:600}
+.facts span{font-size:13px;color:var(--slate)}
+
+.vsl-col{display:flex;flex-direction:column;gap:22px}
+.vsl-head{text-align:center}
+.vsl-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(30,120,255,.35);background:rgba(30,120,255,.06);border-radius:999px;padding:9px 18px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--signal-ink)}
+.vsl-pill i{width:7px;height:7px;border-radius:50%;background:var(--signal)}
+.vsl-title{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;color:var(--ink);font-size:clamp(22px,2.2vw,40px)}
+.vsl-title .accent{display:block}
+.vsl-title small{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(11px,.85vw,14px);letter-spacing:.16em;color:var(--slate);margin-top:12px}
+.vsl{position:relative}
+.vsl-langs{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;margin-top:6px}
+.vsl-langs .label{font-weight:600;color:var(--ink)}
+.vsl-langs button{display:inline-flex;align-items:baseline;gap:7px;border:0;background:none;cursor:pointer;font:500 15px var(--sans);color:var(--slate);padding:4px 2px;border-bottom:2px solid transparent;transition:color .18s,border-color .18s}
+.vsl-langs button b{font:700 13px var(--mono);letter-spacing:.06em;color:var(--ink)}
+.vsl-langs button:hover{color:var(--ink)}
+.vsl-langs button[aria-pressed="true"]{color:var(--signal);border-bottom-color:var(--signal)}
+.vsl-langs button[aria-pressed="true"] b{color:var(--signal)}
+.big-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:clamp(18px,1.6vw,26px) 28px;border-radius:999px;text-decoration:none;color:#fff;
+  font-family:var(--display);font-weight:700;font-size:clamp(17px,1.5vw,24px);letter-spacing:.02em;text-transform:uppercase;
+  background:linear-gradient(100deg,#3B8BFF 0%,#1E78FF 35%,#1560D6 70%,#0E4BAE 100%);
+  box-shadow:0 22px 44px -18px rgba(30,120,255,.7),inset 0 0 0 1px rgba(255,255,255,.35),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.big-cta:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 28px 52px -18px rgba(30,120,255,.8),inset 0 0 0 1px rgba(255,255,255,.45),inset 0 1px 0 rgba(255,255,255,.5)}
+.big-cta:active{transform:translateY(0);filter:brightness(1.15)}
+.big-cta svg{width:30px;height:30px;flex:none}
+.vsl::before,.vsl::after{content:"";position:absolute;width:26px;height:26px;border:1.5px solid var(--signal);z-index:2}
+.vsl::before{top:-10px;left:-10px;border-right:0;border-bottom:0}
+.vsl::after{bottom:-10px;right:-10px;border-left:0;border-top:0}
+.frame{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--ink);box-shadow:0 30px 70px -30px rgba(6,6,12,.35)}
+.frame iframe,.frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.poster{position:absolute;inset:0;background:url('assets/architecture.png') center/cover}
+.poster::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,12,.05),rgba(6,6,12,.55))}
+.poster .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;width:78px;height:78px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 40px rgba(6,6,12,.3)}
+.poster .play::after{content:"";border-left:20px solid var(--ink);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.poster .cap{position:absolute;left:20px;bottom:18px;z-index:1;color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.poster img.mark{position:absolute;right:18px;top:16px;width:34px;z-index:1}
+
+/* audience strip */
+.aud{border-block:1px solid var(--line-soft);padding:34px 0}
+.aud .label{font-size:13px}
+.aud .wrap{display:flex;align-items:center;gap:18px}
+.aud .viewport{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.aud .track{display:flex;gap:44px;width:max-content;animation:scroll 40s linear infinite}
+.aud:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(calc(-50% - 22px))}}
+.aud span.t::after{content:"";width:11px;height:11px;background:var(--signal);transform:rotate(45deg);flex:none}
+@media (prefers-reduced-motion:reduce){.aud .track{animation:none}}
+.aud span.t{white-space:nowrap;display:inline-flex;align-items:center;gap:44px;font-family:var(--display)!important;font-size:clamp(20px,2.4vw,28px)!important;font-weight:700;letter-spacing:.02em!important;border:0!important;padding:0!important;background:none!important;color:var(--ink)!important;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);color:var(--ink-2);border-radius:2px;padding:7px 12px;background:#fff}
+
+/* idea */
+.idea{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.idea h2{font-size:clamp(34px,4vw,72px);font-weight:700;letter-spacing:-.03em}
+.idea p{font-size:18px;margin-bottom:16px}
+
+/* what you'll learn: process timeline */
+.learn{display:grid;grid-template-columns:minmax(300px,.8fr) 1.2fr;gap:clamp(40px,6vw,110px);align-items:start}
+.learn-intro{position:sticky;top:110px}
+.learn-intro h2{margin-bottom:16px}
+.how-title{margin:40px 0 16px}
+.how-list{list-style:none;display:grid;gap:4px;border-top:1px solid var(--line)}
+.how-list li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.how-list .ic{width:40px;height:40px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--signal)}
+.how-list .ic svg{width:20px;height:20px}
+.how-list b{display:block;color:var(--ink);font-size:16px;font-weight:600}
+.how-list span{font-size:15px;color:var(--slate)}
+.learn-cta{margin-top:28px}
+.steps{list-style:none;position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(8px,1vw,16px) clamp(20px,2.4vw,40px);box-shadow:0 30px 60px -45px rgba(6,6,12,.35)}
+.step{position:relative;display:grid;grid-template-columns:64px 1fr;gap:clamp(18px,2vw,30px);padding:clamp(22px,2.2vw,32px) 0;border-bottom:1px solid var(--line-soft)}
+.step:last-child{border-bottom:0}
+.step::before{content:"";position:absolute;left:31px;top:calc(clamp(22px,2.2vw,32px) + 64px);bottom:calc(-1 * clamp(22px,2.2vw,32px));width:2px;background:repeating-linear-gradient(180deg,var(--line) 0 6px,transparent 6px 11px)}
+.step:last-child::before{display:none}
+.badge{position:relative;z-index:1;width:64px;height:64px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(160deg,#fff,var(--paper-2));border:1px solid var(--line);color:var(--signal);transition:background .25s,color .25s,border-color .25s,transform .25s}
+.badge svg{width:28px;height:28px}
+.step:hover .badge{background:var(--signal);border-color:var(--signal);color:#fff;transform:translateY(-2px)}
+.step .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);display:flex;align-items:center;gap:10px}
+.step .k::after{content:"";flex:0 0 28px;height:1px;background:rgba(30,120,255,.4)}
+.step h3{font-size:clamp(20px,1.6vw,26px);font-weight:600;margin:8px 0 6px}
+.step p{color:var(--slate);font-size:clamp(15px,1vw,17px);max-width:620px}
+@media (max-width:960px){.learn{grid-template-columns:1fr}.learn-intro{position:static}.step{grid-template-columns:52px 1fr}.badge{width:52px;height:52px;border-radius:13px}.badge svg{width:24px;height:24px}.step::before{left:25px;top:calc(clamp(22px,2.2vw,32px) + 52px)}}
+
+/* tickets */
+.days{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,40px);align-items:stretch}
+.ticket-wrap{filter:drop-shadow(0 0 1px rgba(6,6,12,.28)) drop-shadow(0 18px 30px rgba(6,6,12,.10));transition:transform .25s ease,filter .25s ease}
+.ticket-wrap:hover{transform:translateY(-4px) rotate(-.4deg);filter:drop-shadow(0 0 1px rgba(6,6,12,.3)) drop-shadow(0 26px 40px rgba(6,6,12,.16))}
+.ticket-wrap.vip-wrap:hover{transform:translateY(-4px) rotate(.4deg)}
+.day{--stub:196px;--notch:15px;position:relative;height:100%;background:#fff;border-radius:14px;display:flex;flex-direction:column;overflow:hidden;
+  -webkit-mask:radial-gradient(circle var(--notch) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle var(--notch) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat}
+.band{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 30px;background:var(--paper-2);border-bottom:1px dashed var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate)}
+.band b{font-weight:600;color:var(--ink)}
+.vip .band{background:var(--signal);color:rgba(255,255,255,.8);border-bottom-color:rgba(255,255,255,.35)}
+.vip .band b{color:#fff}
+.day .body{padding:26px 30px 24px;flex:1;display:flex;flex-direction:column;position:relative}
+.day h3{font-size:clamp(24px,1.8vw,32px);font-weight:600;margin-top:4px}
+.day ul{list-style:none;margin:22px 0 24px;display:grid;gap:12px;flex:1}
+.day li{position:relative;padding-left:26px;font-size:16px}
+.day li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:2px;background:var(--signal)}
+.tear{position:relative;height:0;border-top:2px dashed var(--line);margin:0 calc(var(--notch) + 8px)}
+.stub{height:var(--stub);padding:22px 30px 26px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#fff,var(--paper-2))}
+.vip .stub{background:linear-gradient(180deg,#fff,#EAF2FF)}
+.stub-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.price{font-family:var(--display);font-size:clamp(40px,3vw,54px);font-weight:700;color:var(--ink);letter-spacing:-.03em;line-height:.9}
+.price small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--slate);text-transform:uppercase;margin-top:8px;font-weight:500}
+.vip .price{color:var(--signal)}
+.barcode{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.barcode i{display:block;width:132px;height:40px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,#0000 2px 4px,var(--ink) 4px 5px,#0000 5px 8px,var(--ink) 8px 11px,#0000 11px 12px,var(--ink) 12px 13px,#0000 13px 16px,var(--ink) 16px 17px,#0000 17px 19px,var(--ink) 19px 22px,#0000 22px 23px);opacity:.85}
+.barcode span{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--slate)}
+.day .btn{width:100%}
+.day .seats{margin:0}
+@media (max-width:960px){.day{--stub:188px}.band,.day .body,.stub{padding-left:22px;padding-right:22px}.barcode i{width:104px}}
+
+/* speaker */
+.speaker{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:64px;align-items:center}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:#C8D8E8;display:grid;place-items:center}
+.portrait img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait img.mark{width:42%;opacity:.95}
+.portrait .name{position:absolute;left:0;right:0;bottom:0;padding:20px 22px;background:linear-gradient(180deg,transparent,rgba(6,6,12,.7));color:#fff}
+.portrait .name b{display:block;font-family:var(--display);font-size:20px;font-weight:600}
+.portrait .name span{font-size:14px;opacity:.8}
+.speaker p{font-size:clamp(17px,1.1vw,19px);margin-bottom:16px;max-width:760px}
+.stat{display:flex;gap:18px;align-items:center;border-left:2px solid var(--signal);padding:6px 0 6px 18px;margin:26px 0}
+.stat b{font-family:var(--display);font-size:40px;font-weight:700;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.stat span{font-size:14px;color:var(--slate);max-width:230px}
+.fine{font-size:12px!important;color:var(--slate)}
+
+/* owners */
+.owners{background:var(--ink);color:#d7dde8;border-radius:var(--r);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:1.15fr 1fr;gap:56px;position:relative;overflow:hidden}
+.owners h2{color:#fff}
+.owners .label{color:#8fa6c0}
+.owners p{margin-bottom:14px;font-size:16px}
+.owners ul{list-style:none;display:grid;gap:12px;align-content:center}
+.owners li{border:1px solid rgba(195,210,230,.18);border-radius:var(--r);padding:16px 18px 16px 46px;position:relative;color:#fff}
+.owners li::before{content:"";position:absolute;left:18px;top:50%;width:12px;height:2px;background:var(--signal)}
+.owners img.bg{position:absolute;right:-60px;bottom:-60px;width:280px;opacity:.06}
+
+/* register */
+.register{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+form{border:1px solid var(--line);border-radius:var(--r);padding:32px;background:#fff;display:grid;gap:16px;box-shadow:0 30px 60px -40px rgba(6,6,12,.3)}
+label{display:grid;gap:7px;font-size:13px;font-weight:600;color:var(--ink)}
+input,select{font:inherit;font-weight:400;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:13px 14px;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 3px rgba(30,120,255,.14)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:12px;color:var(--slate)}
+.consent input{width:auto;margin-top:3px}
+.ok{display:none;padding:24px 4px}
+.ok h3{font-size:28px;margin-bottom:8px}
+.ok p{color:var(--slate)}
+.checklist{list-style:none;display:grid;gap:14px;margin-top:28px}
+.checklist li{display:flex;gap:14px;font-size:16px}
+.checklist li b{font-family:var(--mono);font-size:12px;color:var(--signal);padding-top:3px}
+
+/* faq */
+.faq{max-width:1100px;margin:0 auto;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--display);font-size:19px;font-weight:600;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--signal);font-size:24px;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--slate);max-width:700px}
+
+/* closing */
+.closing{text-align:center}
+.closing h2{font-size:clamp(38px,5vw,92px);font-weight:700;letter-spacing:-.035em}
+
+footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px;color:var(--slate)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;margin-bottom:28px}
+.foot img{height:44px;border-radius:4px;margin-bottom:10px}
+.foot a{text-decoration:none;color:var(--ink-2)}
+.foot a:hover{color:var(--signal)}
+.disc{font-size:12px;max-width:900px;margin-top:10px}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px 16px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line-soft);display:none}
+.sticky .btn{width:100%}
+
+@media (max-width:960px){
+  nav .links a:not(.btn){display:none}
+  .hero-grid,.idea,.speaker,.register,.owners,.days{grid-template-columns:1fr}
+  .hero-grid{gap:44px}
+  .topics{grid-template-columns:1fr}
+  .topic{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .topic:last-child{border-bottom:0}
+  .topic h3{margin-top:12px}
+  .how{grid-template-columns:1fr}
+  .speaker{gap:36px}
+  .portrait{max-width:400px}
+  .two{grid-template-columns:1fr}
+  .sticky{display:block}
+  form{padding:24px 18px}
+
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="https://www.sarvx.io/" target="_blank" rel="noopener"><img src="assets/sarvx-logo.png" alt="SarvX Group"></a>
+    <div class="links">
+      <a href="#learn">What you'll learn</a>
+      <a href="#format">Format</a>
+      <a href="#speaker">Trainer</a>
+      <a href="#faq">FAQ</a>
+      <div class="lang" role="group" aria-label="Language / Idioma" data-noi18n>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn primary" href="#register">Reserve a seat</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="status label"><i></i>Free live virtual training · Northern California</span>
+      <h1>Sell like<br>a <span class="accent">leader.</span></h1>
+      <p class="sub">A free, live virtual sales training for salespeople and business owners across Northern California, built on one idea: great selling is leadership.</p>
+      <div class="host"><img src="assets/elias.jpg" alt="Elias Saracco"><div><b>Hosted by Elias Saracco</b><span>Founder, SarvX Group</span></div></div>
+      <div class="ctas">
+        <a class="btn signal" href="#register">Reserve my free seat →</a>
+        <a class="btn ghost" href="#format">See the format</a>
+      </div>
+      <div data-noi18n><div class="left" data-left hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M15 6v12" stroke-dasharray="2 2"/></svg><span></span></div></div>
+      <div class="facts">
+        <div><b data-date>Dates announced soon</b><span>Two-day format</span></div>
+        <div><b>Live online</b><span>Join from anywhere</span></div>
+        <div><b>Free</b><span>VIP workshop $99</span></div>
+      </div>
+    </div>
+    <div class="vsl-col">
+    <div class="vsl-head">
+      <div class="vsl-title">Sell Like a Leader Sales Training <span class="accent">Free Virtual Experience</span><small>2026 — Live online · December</small></div>
+    </div>
+    <div class="vsl">
+      <div class="frame" id="vsl">
+        <div class="poster">
+          <div class="play" aria-hidden="true"></div>
+          <div class="cap">Watch · Why great selling is leadership</div>
+        </div>
+      </div>
+    </div>
+    <div class="vsl-langs">
+      <span class="label">Available in:</span>
+      <button type="button" data-lang="en" aria-pressed="true" data-noi18n><b>EN</b>English</button>
+      <button type="button" data-lang="es" aria-pressed="false" data-noi18n><b>ES</b>Español</button>
+    </div>
+    <a class="big-cta" href="#register" data-ticket="0">Get your free virtual ticket
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M15 6v12" stroke-dasharray="2 2"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="aud">
+  <div class="wrap">
+    <span class="label" style="flex:none">Built for</span>
+    <div class="viewport"><div class="track">
+      <span class="t">Car sales</span><span class="t">Insurance</span><span class="t">Coaches</span><span class="t">Consultants</span><span class="t">Service businesses</span><span class="t">Cold callers</span><span class="t">Door-to-door</span><span class="t">Business owners</span>
+      <span class="t" aria-hidden="true">Car sales</span><span class="t" aria-hidden="true">Insurance</span><span class="t" aria-hidden="true">Coaches</span><span class="t" aria-hidden="true">Consultants</span><span class="t" aria-hidden="true">Service businesses</span><span class="t" aria-hidden="true">Cold callers</span><span class="t" aria-hidden="true">Door-to-door</span><span class="t" aria-hidden="true">Business owners</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- IDEA -->
+<section>
+  <div class="wrap idea">
+    <div>
+      <div class="label">The idea</div>
+      <h2>Stop chasing the close. Start <span class="accent">leading</span> the conversation.</h2>
+    </div>
+    <div>
+      <p>Most sales training teaches scripts and pressure. This training teaches you how to lead: prepare well, listen closely, ask better questions, and help buyers reach a clear decision they feel good about.</p>
+      <p style="color:var(--slate)">It works the same way on a car lot, a cold call, a front porch, or in a boardroom. You'll leave with a complete five-step sales process you can use on your very next conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section id="learn" class="alt">
+  <div class="wrap learn">
+    <div class="learn-intro">
+      <div class="label">What you'll learn</div>
+      <h2>Five skills, one process.</h2>
+      <p class="lead">Every skill ties back to the five-step process. You get the whole process, not a preview.</p>
+      <div class="label how-title">How it's taught</div>
+      <ul class="how-list">
+        <li><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5-4-2.5z"/></svg></div><div><b>Real examples</b><span>See each step working in actual sales conversations.</span></div></li>
+        <li><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></div><div><b>Live exercises</b><span>Practice the process during the session, not after.</span></div></li>
+        <li><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.2 3.2 0 0 1 0 6.4M21 20a6 6 0 0 0-3.5-5.5"/></svg></div><div><b>Audience scenarios</b><span>Selected attendee situations worked through live.</span></div></li>
+      </ul>
+      <a class="btn signal learn-cta" href="#register">Reserve my free seat →</a>
+    </div>
+    <ol class="steps">
+        <li class="step"><div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l.9-4.6A8 8 0 1 1 21 12z"/><path d="M9 10.5h6M9 13.5h4"/></svg></div><div><span class="k">Skill 01</span><h3>The art of sales</h3><p>Understand people, ask better questions, and help buyers reach a clear decision.</p></div></li>
+        <li class="step"><div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0L5 7zM19 7l-3 6a3 3 0 0 0 6 0l-3-6z"/></svg></div><div><span class="k">Skill 02</span><h3>Negotiation psychology</h3><p>Read priorities, uncertainty, and tradeoffs so stalled conversations move forward.</p></div></li>
+        <li class="step"><div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div><div><span class="k">Skill 03</span><h3>Ethical selling</h3><p>Make honest recommendations, confirm fit, and respect the buyer's decision.</p></div></li>
+        <li class="step"><div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div><div><span class="k">Skill 04</span><h3>Sales leadership</h3><p>Earn confidence through preparation, listening, and a clear process.</p></div></li>
+        <li class="step"><div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></svg></div><div><span class="k">Skill 05</span><h3>Objection prevention</h3><p>Address concerns throughout the conversation instead of at the close.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section id="format">
+  <div class="wrap">
+    <div class="head center">
+      <div class="label">Format</div>
+      <h2>Two days. Join free, or go deeper.</h2>
+      <p class="lead">Day 1 is open to everyone. Day 2 is a smaller, hands-on workshop for VIP attendees.</p>
+    </div>
+    <div class="days">
+      <div class="ticket-wrap"><div class="day">
+        <div class="band"><b>Admit one</b><span>Day 1 · General admission</span></div>
+        <div class="body">
+        <h3>The live training</h3>
+        <ul>
+          <li>The full live virtual sales training</li>
+          <li>The complete five-step sales process</li>
+          <li>Real examples, live exercises, and audience scenarios</li>
+          <li>An invitation to the Northern California sales community</li>
+        </ul>
+        <div class="seats" data-seats="ga" data-noi18n hidden><div class="bar"><i></i></div><div class="txt"><span></span><span></span></div></div>
+        </div>
+        <div class="tear" aria-hidden="true"></div>
+        <div class="stub">
+          <div class="stub-row"><div class="price">Free<small>General admission</small></div><div class="barcode" aria-hidden="true"><i></i><span>SLL · GA · D1</span></div></div>
+          <a class="btn ghost" href="#register" data-ticket="0">Reserve free seat</a>
+        </div>
+      </div></div>
+      <div class="ticket-wrap vip-wrap"><div class="day vip">
+        <div class="band"><b>Admit one · VIP</b><span>Day 2 · VIP</span></div>
+        <div class="body">
+        <h3>The implementation workshop</h3>
+        <ul>
+          <li>Everything in general admission</li>
+          <li>Join Elias live in a smaller workshop group</li>
+          <li>Ask your questions directly</li>
+          <li>Bring a real sales issue and work through it with personal feedback</li>
+        </ul>
+        <div class="seats" data-seats="vip" data-noi18n hidden><div class="bar"><i></i></div><div class="txt"><span></span><span></span></div></div>
+        </div>
+        <div class="tear" aria-hidden="true"></div>
+        <div class="stub">
+          <div class="stub-row"><div class="price">$99<small>One-time</small></div><div class="barcode" aria-hidden="true"><i></i><span>SLL · VIP · D2</span></div></div>
+          <a class="btn primary" href="#register" data-ticket="1">Get VIP access</a>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKER -->
+<section id="speaker" class="alt">
+  <div class="wrap speaker">
+    <div class="portrait">
+      <img class="photo" src="assets/elias.jpg" alt="Elias Saracco" onerror="this.remove()">
+      <div class="name"><b>Elias Saracco</b><span>Founder, SarvX Group</span></div>
+    </div>
+    <div>
+      <div class="label">Your trainer</div>
+      <h2>Elias Saracco</h2>
+      <p>Elias is the founder of SarvX Group, a growth consulting firm that helps businesses align sales strategy, process, people, and technology to convert more of the opportunities they already have.</p>
+      <div class="stat"><b>$100K/mo</b><span>The monthly revenue Elias grew his own agency to</span></div>
+      <p>At this training he'll share the lessons behind that growth: what worked, what didn't, and the process that came out of it. You'll see how he teaches, how he diagnoses a sales problem, and how he leads a sales conversation.</p>
+      <p class="fine">Results are Elias's own and are not typical or guaranteed. Your results depend on your market, offer, effort, and other factors.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OWNERS -->
+<section>
+  <div class="wrap">
+    <div class="owners">
+      <div>
+        <div class="label">For business owners &amp; team leaders</div>
+        <h2>Want the process built into how your team sells?</h2>
+        <p>Everyone leaves with the full five-step process to apply on their own. Some businesses will want help making it the way their whole team sells, including conversations, follow-up, and the tools that support both.</p>
+        <p>At the end of the training, Elias will invite qualified owners to apply for an implementation conversation. You'll hear the full scope, pricing, and terms before any decision.</p>
+      </div>
+      <ul>
+        <li>You already have a proven offer</li>
+        <li>You have active sales opportunities right now</li>
+        <li>You lead a sales team or make the buying decisions</li>
+        <li>You want a process your team uses consistently</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="alt">
+  <div class="wrap register">
+    <div>
+      <div class="label">Reserve your seat</div>
+      <h2>Your free seat is one minute away.</h2>
+      <p class="lead">Dates are being finalized. Register now and you'll be the first to get the schedule and the live link.</p>
+      <ul class="checklist">
+        <li><b>01</b><span>Register below. General admission is free.</span></li>
+        <li><b>02</b><span>Get the dates and live link by email as soon as they're set.</span></li>
+        <li><b>03</b><span>Show up ready to learn, and bring a real sales situation if you're VIP.</span></li>
+      </ul>
+    </div>
+    <form id="form" novalidate>
+      <div class="two">
+        <label>First name<input name="first_name" required autocomplete="given-name"></label>
+        <label>Last name<input name="last_name" required autocomplete="family-name"></label>
+      </div>
+      <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      <label>Mobile phone<input type="tel" name="phone" autocomplete="tel"></label>
+      <div class="two">
+        <label>I sell in
+          <select name="industry" required>
+            <option value="">Select</option>
+            <option>Auto sales</option><option>Insurance</option><option>Coaching</option><option>Consulting</option>
+            <option>Service business</option><option>Cold calling / inside sales</option><option>Door-to-door</option><option>Other</option>
+          </select>
+        </label>
+        <label>My role
+          <select name="role" required>
+            <option value="">Select</option>
+            <option>Business owner</option><option>Sales manager / team lead</option><option>Salesperson</option><option>Other</option>
+          </select>
+        </label>
+      </div>
+      <label>Ticket
+        <select name="ticket" id="ticket" data-noi18n>
+          <option value="General admission (Free)">General admission, Day 1 (Free)</option>
+          <option value="VIP ($99)">VIP, Day 1 + Day 2 workshop ($99)</option>
+        </select>
+      </label>
+      <label class="consent"><input type="checkbox" name="consent" required> I agree to receive event emails and reminder texts from SarvX Group. Message and data rates may apply. Reply STOP to opt out.</label>
+      <div class="soldout" id="soldout" data-noi18n></div>
+      <button class="btn signal" type="submit">Reserve my seat →</button>
+      <div class="ok" id="ok"><h3>You're registered.</h3><p>We'll email you the dates and live link as soon as they're confirmed.</p></div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head center">
+      <div class="label">FAQ</div>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Is it really free?</summary><p>Yes. Day 1 general admission is free. The Day 2 VIP workshop is optional and costs $99.</p></details>
+      <details><summary>When is it?</summary><p>Dates are being finalized. Register now and you'll get the schedule and live link by email as soon as they're set.</p></details>
+      <details><summary>What's included in VIP?</summary><p>VIP gets you into the Day 2 workshop, where you join Elias live in a smaller group, ask questions directly, and bring a real sales issue to work through with personal feedback.</p></details>
+      <details><summary>Who is this for?</summary><p>Car salespeople, insurance agents, coaches, consultants, service-business owners, cold callers, and door-to-door reps across Northern California. If your conversations end in a buying decision, it's for you.</p></details>
+      <details><summary>Will I be pitched?</summary><p>You get the full five-step process either way. Near the end, Elias briefly explains how business owners can apply for help implementing it. It's optional, and you'll hear the full scope and pricing before any decision.</p></details>
+      <details><summary>I'm a salesperson, not an owner. Is it still worth it?</summary><p>Yes. The training, the process, the VIP workshop, and the community are all built for individual salespeople too.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="alt closing">
+  <div class="wrap">
+    <div class="label">Sell like a leader</div>
+    <h2 style="margin:14px 0 26px">Great selling is <span class="accent">leadership.</span></h2>
+    <a class="btn signal" href="#register">Reserve my free seat →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><img src="assets/sarvx-logo.png" alt="SarvX Group">Growth through sales transformation.</div>
+      <div><a href="mailto:Elias@sarvx.io">Elias@sarvx.io</a><br><a href="tel:+19165008503">(916) 500-8503</a><br><a href="https://www.sarvx.io/" target="_blank" rel="noopener">sarvx.io</a></div>
+    </div>
+    <p class="disc">© <span id="yr">2026</span> SarvX Group. All rights reserved.</p>
+    <p class="disc">Earnings disclaimer: revenue figures on this page describe Elias Saracco's own experience and are not typical. They are not a promise or guarantee of similar results. Your results depend on your offer, market, experience, effort, and other factors.</p>
+    <p class="disc">This site is not part of the Facebook or Meta website and is not endorsed by Meta Platforms, Inc. Facebook is a trademark of Meta Platforms, Inc.</p>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn signal" href="#register">Reserve my free seat →</a></div>
+
+<script>
+/* Settings: see README.md */
+const EVENT_DATE_LABEL = "";  // e.g. "Nov 12–13, 2026". Replaces "Dates announced soon".
+const VSL_EMBED_URL    = "";  // YouTube / Vimeo / Loom embed URL
+const FORM_ENDPOINT    = "";  // GHL / Zapier / Make webhook, or Web3Forms / Formspree URL
+const EVENTBRITE_URL   = "";  // used if FORM_ENDPOINT is empty
+
+if (EVENT_DATE_LABEL) document.querySelectorAll('[data-date]').forEach(e => e.textContent = EVENT_DATE_LABEL);
+if (VSL_EMBED_URL) document.getElementById('vsl').innerHTML =
+  `<iframe src="${VSL_EMBED_URL}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Sell Like a Leader"></iframe>`;
+
+document.querySelectorAll('[data-ticket]').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('ticket').selectedIndex = +a.dataset.ticket;
+  renderSeats();
+}));
+// keep submitted values in English whatever language is showing
+document.querySelectorAll('select[name=industry] option, select[name=role] option').forEach(o => { if (!o.hasAttribute('value')) o.value = o.textContent; });
+
+/* ================= Seats left =================
+   Counts real registrations with a shared online counter (Abacus).
+   Reset keys are in counter-admin-keys.txt (keep that file private). */
+const SEAT_CAPS = { ga: 500, vip: 100 };
+const COUNTER = { base: 'https://abacus.jasoncameron.dev', ns: 'sarvx-sell-like-a-leader', keys: { ga: 'ga-registrations', vip: 'vip-registrations' } };
+const claimed = { ga: null, vip: null };
+const seatsLeft = k => claimed[k] == null ? null : Math.max(0, SEAT_CAPS[k] - claimed[k]);
+const fmt = n => n.toLocaleString(LANG === 'es' ? 'es-US' : 'en-US');
+
+async function loadSeats() {
+  await Promise.all(Object.keys(SEAT_CAPS).map(async k => {
+    try {
+      const r = await fetch(`${COUNTER.base}/get/${COUNTER.ns}/${COUNTER.keys[k]}`, { cache: 'no-store' });
+      const j = await r.json();
+      if (typeof j.value === 'number') claimed[k] = Math.max(0, j.value);
+    } catch (e) { /* counter unreachable: meters stay hidden rather than showing a made-up number */ }
+  }));
+  renderSeats();
+}
+
+function renderSeats() {
+  const T = I18N_UI[LANG];
+  for (const k of Object.keys(SEAT_CAPS)) {
+    const left = seatsLeft(k), cap = SEAT_CAPS[k];
+    const box = document.querySelector(`[data-seats="${k}"]`);
+    const btn = document.querySelector(`.day [data-ticket="${k === 'vip' ? 1 : 0}"]`);
+    const opt = document.getElementById('ticket').options[k === 'vip' ? 1 : 0];
+    const base = T.opt[k];
+    if (left == null) { box.hidden = true; opt.textContent = base; opt.disabled = false; continue; }
+    box.hidden = false;
+    box.classList.toggle('out', left === 0);
+    box.querySelector('.bar i').style.width = ((cap - left) / cap * 100) + '%';
+    const [a, b] = box.querySelectorAll('.txt span');
+    a.innerHTML = left === 0 ? `<b>${T.soldOut}</b>` : T.leftOf(fmt(left), fmt(cap));
+    b.textContent = T.claimed(fmt(cap - left));
+    btn.classList.toggle('disabled', left === 0);
+    opt.disabled = left === 0;
+    opt.textContent = base + (left === 0 ? ` · ${T.soldOut}` : ` · ${T.optLeft(fmt(left))}`);
+  }
+  const sel = document.getElementById('ticket');
+  if (sel.options[sel.selectedIndex].disabled) { const other = [...sel.options].findIndex(o => !o.disabled); if (other >= 0) sel.selectedIndex = other; }
+  const heroLeft = document.querySelector('[data-left]'), gl = seatsLeft('ga');
+  heroLeft.hidden = gl == null;
+  if (gl != null) heroLeft.querySelector('span').innerHTML = gl === 0 ? T.gaSoldOut : T.heroLeft(fmt(gl));
+  const allOut = seatsLeft('ga') === 0 && seatsLeft('vip') === 0;
+  form.querySelector('button[type=submit]').classList.toggle('disabled', allOut);
+  const so = document.getElementById('soldout');
+  so.style.display = allOut ? 'block' : 'none';
+  so.textContent = T.allOut;
+}
+
+async function claimSeat(k) {
+  const flag = 'sll-claimed-' + k;
+  try { if (localStorage.getItem(flag)) return { ok: true }; } catch (e) {}   // same browser re-submitting: don't count twice
+  try {
+    const r = await fetch(`${COUNTER.base}/hit/${COUNTER.ns}/${COUNTER.keys[k]}`, { cache: 'no-store' });
+    const j = await r.json();
+    if (typeof j.value !== 'number') return { ok: true };
+    claimed[k] = j.value;
+    if (j.value > SEAT_CAPS[k]) return { ok: false };                         // someone else took the last seat first
+    try { localStorage.setItem(flag, String(j.value)); } catch (e) {}
+    return { ok: true, seat: j.value };
+  } catch (e) { return { ok: true }; }                                         // counter down: still register them
+}
+
+const form = document.getElementById('form');
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const data = Object.fromEntries(new FormData(form));
+  data.source = 'sell-like-a-leader';
+  data.language = LANG;
+  const kind = document.getElementById('ticket').selectedIndex === 1 ? 'vip' : 'ga';
+  if (seatsLeft(kind) === 0) { renderSeats(); return; }
+  const claim = await claimSeat(kind);
+  renderSeats();
+  if (!claim.ok) { const so = document.getElementById('soldout'); so.textContent = I18N_UI[LANG].justSoldOut; so.style.display = 'block'; return; }
+  if (claim.seat) data.seat_number = claim.seat;
+  const q = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k => q.get(k) && (data[k] = q.get(k)));
+  if (FORM_ENDPOINT) {
+    try { await fetch(FORM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) }); }
+    catch (err) { console.error(err); }
+  } else if (EVENTBRITE_URL) { location.href = EVENTBRITE_URL; return; }
+  if (window.fbq) fbq('track', 'CompleteRegistration');
+  [...form.children].forEach(c => c.style.display = 'none');
+  document.getElementById('ok').style.display = 'block';
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ================= English / Español ================= */
+const I18N_UI = {
+  en: {
+    opt: { ga: 'General admission, Day 1 (Free)', vip: 'VIP, Day 1 + Day 2 workshop ($99)' },
+    leftOf: (n, c) => `<b>${n}</b> of ${c} seats left`, claimed: n => `${n} claimed`, optLeft: n => `${n} left`,
+    soldOut: 'Sold out', heroLeft: n => `<b>${n}</b> free seats left`, gaSoldOut: 'Free seats are sold out. VIP may still be open.',
+    allOut: 'All seats are taken. Email Elias@sarvx.io to join the waitlist.',
+    justSoldOut: 'Sorry, that ticket just sold out. Pick another option above or email Elias@sarvx.io for the waitlist.',
+    title: 'Sell Like a Leader | Free Virtual Sales Training | SarvX Group',
+  },
+  es: {
+    opt: { ga: 'Entrada general, Día 1 (Gratis)', vip: 'VIP, Día 1 + taller del Día 2 ($99)' },
+    leftOf: (n, c) => `Quedan <b>${n}</b> de ${c} lugares`, claimed: n => `${n} ${n === "1" ? "reservado" : "reservados"}`, optLeft: n => `quedan ${n}`,
+    soldOut: 'Agotado', heroLeft: n => `Quedan <b>${n}</b> lugares gratis`, gaSoldOut: 'Los lugares gratis se agotaron. El VIP puede seguir disponible.',
+    allOut: 'Todos los lugares están ocupados. Escribe a Elias@sarvx.io para entrar a la lista de espera.',
+    justSoldOut: 'Lo sentimos, ese boleto se acaba de agotar. Elige otra opción o escribe a Elias@sarvx.io para la lista de espera.',
+    title: 'Vende como un líder | Capacitación de ventas virtual gratis | SarvX Group',
+  },
+};
+
+// English text on the page -> Spanish. Keys are the exact English text of each piece.
+const ES = {
+  "What you'll learn": "Qué aprenderás", "Format": "Formato", "Trainer": "Instructor", "FAQ": "Preguntas", "Reserve a seat": "Reserva tu lugar",
+  "Free live virtual training · Northern California": "Capacitación virtual gratis y en vivo · Norte de California",
+  "Sell like": "Vende como", "a": "un", "leader.": "líder.",
+  "A free, live virtual sales training for salespeople and business owners across Northern California, built on one idea: great selling is leadership.": "Una capacitación de ventas gratis, en vivo y virtual para vendedores y dueños de negocios del Norte de California, basada en una idea: vender bien es liderar.",
+  "Hosted by Elias Saracco": "Presentado por Elias Saracco", "Founder, SarvX Group": "Fundador, SarvX Group",
+  "Reserve my free seat →": "Reservar mi lugar gratis →", "See the format": "Ver el formato",
+  "Dates announced soon": "Fechas por anunciar", "Two-day format": "Formato de dos días", "Live online": "En vivo en línea", "Join from anywhere": "Únete desde cualquier lugar",
+  "Free": "Gratis", "VIP workshop $99": "Taller VIP $99", "Watch · Why great selling is leadership": "Mira · Por qué vender bien es liderar",
+  "Free virtual experience · December": "Experiencia virtual gratis · Diciembre", "Sell Like a Leader Sales Training": "Capacitación de ventas Vende como un líder",
+  "Free Virtual Experience": "Experiencia virtual gratis", "Available in:": "Disponible en:", "Get your free virtual ticket": "Obtén tu boleto virtual gratis", "2026 — Live online · December": "2026 — En vivo en línea · Diciembre",
+  "Built for": "Para", "Car sales": "Venta de autos", "Insurance": "Seguros", "Coaches": "Coaches", "Consultants": "Consultores", "Service businesses": "Negocios de servicios",
+  "Cold callers": "Llamadas en frío", "Door-to-door": "Puerta a puerta", "Business owners": "Dueños de negocios",
+  "The idea": "La idea", "Stop chasing the close. Start": "Deja de perseguir el cierre. Empieza a", "leading": "liderar", "the conversation.": "la conversación.",
+  "Most sales training teaches scripts and pressure. This training teaches you how to lead: prepare well, listen closely, ask better questions, and help buyers reach a clear decision they feel good about.": "La mayoría de las capacitaciones de ventas enseñan guiones y presión. Esta te enseña a liderar: prepararte bien, escuchar con atención, hacer mejores preguntas y ayudar a los compradores a tomar una decisión clara con la que se sientan bien.",
+  "It works the same way on a car lot, a cold call, a front porch, or in a boardroom. You'll leave with a complete five-step sales process you can use on your very next conversation.": "Funciona igual en un lote de autos, en una llamada en frío, en la puerta de una casa o en una sala de juntas. Saldrás con un proceso de ventas completo de cinco pasos que puedes usar en tu próxima conversación.",
+  "Five skills, one process.": "Cinco habilidades, un proceso.",
+  "Every skill ties back to the five-step process. You get the whole process, not a preview.": "Cada habilidad se conecta con el proceso de cinco pasos. Recibes el proceso completo, no un adelanto.",
+  "The art of sales": "El arte de vender", "Understand people, ask better questions, and help buyers reach a clear decision.": "Entiende a las personas, haz mejores preguntas y ayuda a los compradores a llegar a una decisión clara.",
+  "Negotiation psychology": "Psicología de la negociación", "Read priorities, uncertainty, and tradeoffs so stalled conversations move forward.": "Identifica prioridades, dudas y concesiones para que las conversaciones estancadas avancen.",
+  "Ethical selling": "Venta ética", "Make honest recommendations, confirm fit, and respect the buyer's decision.": "Haz recomendaciones honestas, confirma que sea una buena opción y respeta la decisión del comprador.",
+  "Sales leadership": "Liderazgo en ventas", "Earn confidence through preparation, listening, and a clear process.": "Gana confianza con preparación, escucha y un proceso claro.",
+  "Objection prevention": "Prevención de objeciones", "Address concerns throughout the conversation instead of at the close.": "Atiende las inquietudes durante toda la conversación, no solo al cierre.",
+  "Real examples": "Ejemplos reales", "How it's taught": "Cómo se enseña", "Skill 01": "Habilidad 01", "Skill 02": "Habilidad 02", "Skill 03": "Habilidad 03", "Skill 04": "Habilidad 04", "Skill 05": "Habilidad 05", "See each step working in actual sales conversations.": "Mira cada paso funcionando en conversaciones de ventas reales.",
+  "Live exercises": "Ejercicios en vivo", "Practice the process during the session, not after.": "Practica el proceso durante la sesión, no después.",
+  "Audience scenarios": "Casos del público", "Selected attendee situations worked through live.": "Situaciones de asistentes resueltas en vivo.",
+  "Two days. Join free, or go deeper.": "Dos días. Únete gratis o profundiza más.",
+  "Day 1 is open to everyone. Day 2 is a smaller, hands-on workshop for VIP attendees.": "El Día 1 está abierto a todos. El Día 2 es un taller práctico y más reducido para asistentes VIP.",
+  "Day 1 · General admission": "Día 1 · Entrada general", "The live training": "La capacitación en vivo",
+  "The full live virtual sales training": "La capacitación de ventas virtual completa y en vivo", "The complete five-step sales process": "El proceso de ventas completo de cinco pasos",
+  "Real examples, live exercises, and audience scenarios": "Ejemplos reales, ejercicios en vivo y casos del público",
+  "An invitation to the Northern California sales community": "Una invitación a la comunidad de ventas del Norte de California",
+  "Reserve free seat": "Reservar lugar gratis", "Admit one": "Pase de entrada", "Admit one · VIP": "Pase de entrada · VIP", "General admission": "Entrada general", "Day 2 · VIP": "Día 2 · VIP", "The implementation workshop": "El taller de implementación", "One-time": "Pago único",
+  "Everything in general admission": "Todo lo de la entrada general", "Join Elias live in a smaller workshop group": "Únete a Elias en vivo en un grupo de taller más pequeño",
+  "Ask your questions directly": "Haz tus preguntas directamente", "Bring a real sales issue and work through it with personal feedback": "Trae un reto de ventas real y resuélvelo con retroalimentación personal",
+  "Get VIP access": "Obtener acceso VIP", "Your trainer": "Tu instructor",
+  "Elias is the founder of SarvX Group, a growth consulting firm that helps businesses align sales strategy, process, people, and technology to convert more of the opportunities they already have.": "Elias es el fundador de SarvX Group, una firma de consultoría de crecimiento que ayuda a las empresas a alinear su estrategia de ventas, procesos, personas y tecnología para convertir más de las oportunidades que ya tienen.",
+  "$100K/mo": "$100K/mes", "The monthly revenue Elias grew his own agency to": "Los ingresos mensuales que Elias alcanzó con su propia agencia",
+  "At this training he'll share the lessons behind that growth: what worked, what didn't, and the process that came out of it. You'll see how he teaches, how he diagnoses a sales problem, and how he leads a sales conversation.": "En esta capacitación compartirá las lecciones detrás de ese crecimiento: lo que funcionó, lo que no y el proceso que surgió de ello. Verás cómo enseña, cómo diagnostica un problema de ventas y cómo lidera una conversación de ventas.",
+  "Results are Elias's own and are not typical or guaranteed. Your results depend on your market, offer, effort, and other factors.": "Los resultados son de Elias y no son típicos ni están garantizados. Tus resultados dependen de tu mercado, tu oferta, tu esfuerzo y otros factores.",
+  "For business owners & team leaders": "Para dueños de negocios y líderes de equipo",
+  "Want the process built into how your team sells?": "¿Quieres que el proceso sea la forma en que vende tu equipo?",
+  "Everyone leaves with the full five-step process to apply on their own. Some businesses will want help making it the way their whole team sells, including conversations, follow-up, and the tools that support both.": "Todos salen con el proceso completo de cinco pasos para aplicarlo por su cuenta. Algunas empresas querrán ayuda para que sea la forma en que vende todo su equipo, incluyendo las conversaciones, el seguimiento y las herramientas que los apoyan.",
+  "At the end of the training, Elias will invite qualified owners to apply for an implementation conversation. You'll hear the full scope, pricing, and terms before any decision.": "Al final de la capacitación, Elias invitará a dueños calificados a solicitar una conversación de implementación. Conocerás el alcance, el precio y los términos completos antes de tomar cualquier decisión.",
+  "You already have a proven offer": "Ya tienes una oferta comprobada", "You have active sales opportunities right now": "Tienes oportunidades de venta activas ahora mismo",
+  "You lead a sales team or make the buying decisions": "Lideras un equipo de ventas o tomas las decisiones de compra", "You want a process your team uses consistently": "Quieres un proceso que tu equipo use de forma constante",
+  "Reserve your seat": "Reserva tu lugar", "Your free seat is one minute away.": "Tu lugar gratis está a un minuto.",
+  "Dates are being finalized. Register now and you'll be the first to get the schedule and the live link.": "Las fechas se están definiendo. Regístrate ahora y serás de los primeros en recibir el calendario y el enlace en vivo.",
+  "Register below. General admission is free.": "Regístrate abajo. La entrada general es gratis.",
+  "Get the dates and live link by email as soon as they're set.": "Recibe las fechas y el enlace en vivo por correo en cuanto se confirmen.",
+  "Show up ready to learn, and bring a real sales situation if you're VIP.": "Llega listo para aprender y, si eres VIP, trae una situación de ventas real.",
+  "First name": "Nombre", "Last name": "Apellido", "Email": "Correo electrónico", "Mobile phone": "Teléfono celular", "I sell in": "Vendo en", "Select": "Seleccionar",
+  "Auto sales": "Venta de autos", "Coaching": "Coaching", "Consulting": "Consultoría", "Service business": "Negocio de servicios",
+  "Cold calling / inside sales": "Llamadas en frío / ventas internas", "Other": "Otro", "My role": "Mi rol", "Business owner": "Dueño de negocio",
+  "Sales manager / team lead": "Gerente de ventas / líder de equipo", "Salesperson": "Vendedor", "Ticket": "Boleto",
+  "I agree to receive event emails and reminder texts from SarvX Group. Message and data rates may apply. Reply STOP to opt out.": "Acepto recibir correos y mensajes de texto de recordatorio de SarvX Group sobre el evento. Pueden aplicarse tarifas de mensajes y datos. Responde STOP para cancelar.",
+  "Reserve my seat →": "Reservar mi lugar →", "You're registered.": "¡Ya estás registrado!",
+  "We'll email you the dates and live link as soon as they're confirmed.": "Te enviaremos por correo las fechas y el enlace en vivo en cuanto se confirmen.",
+  "Common questions": "Preguntas frecuentes", "Is it really free?": "¿De verdad es gratis?",
+  "Yes. Day 1 general admission is free. The Day 2 VIP workshop is optional and costs $99.": "Sí. La entrada general del Día 1 es gratis. El taller VIP del Día 2 es opcional y cuesta $99.",
+  "When is it?": "¿Cuándo es?",
+  "Dates are being finalized. Register now and you'll get the schedule and live link by email as soon as they're set.": "Las fechas se están definiendo. Regístrate ahora y recibirás el calendario y el enlace en vivo por correo en cuanto se confirmen.",
+  "What's included in VIP?": "¿Qué incluye el VIP?",
+  "VIP gets you into the Day 2 workshop, where you join Elias live in a smaller group, ask questions directly, and bring a real sales issue to work through with personal feedback.": "El VIP te da acceso al taller del Día 2, donde te unes a Elias en vivo en un grupo más pequeño, haces preguntas directamente y traes un reto de ventas real para resolverlo con retroalimentación personal.",
+  "Who is this for?": "¿Para quién es?",
+  "Car salespeople, insurance agents, coaches, consultants, service-business owners, cold callers, and door-to-door reps across Northern California. If your conversations end in a buying decision, it's for you.": "Vendedores de autos, agentes de seguros, coaches, consultores, dueños de negocios de servicios, vendedores por teléfono y vendedores puerta a puerta del Norte de California. Si tus conversaciones terminan en una decisión de compra, es para ti.",
+  "Will I be pitched?": "¿Me van a vender algo?",
+  "You get the full five-step process either way. Near the end, Elias briefly explains how business owners can apply for help implementing it. It's optional, and you'll hear the full scope and pricing before any decision.": "Recibes el proceso completo de cinco pasos de cualquier manera. Cerca del final, Elias explica brevemente cómo los dueños de negocios pueden solicitar ayuda para implementarlo. Es opcional, y conocerás el alcance y el precio completos antes de cualquier decisión.",
+  "I'm a salesperson, not an owner. Is it still worth it?": "Soy vendedor, no dueño. ¿Aun así vale la pena?",
+  "Yes. The training, the process, the VIP workshop, and the community are all built for individual salespeople too.": "Sí. La capacitación, el proceso, el taller VIP y la comunidad también están pensados para vendedores individuales.",
+  "Sell like a leader": "Vende como un líder", "Great selling is": "Vender bien es", "leadership.": "liderar.",
+  "Growth through sales transformation.": "Crecimiento a través de la transformación de ventas.", "SarvX Group. All rights reserved.": "SarvX Group. Todos los derechos reservados.",
+  "Earnings disclaimer: revenue figures on this page describe Elias Saracco's own experience and are not typical. They are not a promise or guarantee of similar results. Your results depend on your offer, market, experience, effort, and other factors.": "Aviso sobre ingresos: las cifras de ingresos en esta página describen la experiencia propia de Elias Saracco y no son típicas. No son una promesa ni una garantía de resultados similares. Tus resultados dependen de tu oferta, mercado, experiencia, esfuerzo y otros factores.",
+  "This site is not part of the Facebook or Meta website and is not endorsed by Meta Platforms, Inc. Facebook is a trademark of Meta Platforms, Inc.": "Este sitio no forma parte del sitio web de Facebook o Meta y no está respaldado por Meta Platforms, Inc. Facebook es una marca registrada de Meta Platforms, Inc.",
+};
+
+const textNodes = [];
+(function collect(n) {
+  for (const c of n.childNodes) {
+    if (c.nodeType === 3 && c.nodeValue.trim()) { c.__en = c.nodeValue; textNodes.push(c); }
+    else if (c.nodeType === 1 && !/^(SCRIPT|STYLE|SVG)$/i.test(c.tagName) && !c.hasAttribute('data-noi18n')) collect(c);
+  }
+})(document.body);
+
+let LANG = 'en';
+function applyLang(lang) {
+  LANG = lang === 'es' ? 'es' : 'en';
+  document.documentElement.lang = LANG;
+  for (const n of textNodes) {
+    const key = n.__en.trim(), lead = n.__en.match(/^\s*/)[0], trail = n.__en.match(/\s*$/)[0];
+    n.nodeValue = LANG === 'es' && ES[key] ? lead + ES[key] + trail : n.__en;
+  }
+  if (EVENT_DATE_LABEL) document.querySelectorAll('[data-date]').forEach(e => e.textContent = EVENT_DATE_LABEL);
+  document.title = I18N_UI[LANG].title;
+  document.querySelectorAll('.lang button, .vsl-langs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === LANG)));
+  try { localStorage.setItem('sll-lang', LANG); } catch (e) {}
+  renderSeats();
+}
+document.querySelectorAll('.lang button, .vsl-langs button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+let startLang = new URLSearchParams(location.search).get('lang');
+if (!startLang) { try { startLang = localStorage.getItem('sll-lang'); } catch (e) {} }
+if (!startLang) startLang = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
+applyLang(startLang);
+loadSeats();
+setInterval(loadSeats, 30000);
+
+/* ================= Entrance animations =================
+   Headlines rise in word by word; everything else fades up as it scrolls into view.
+   Split headlines are put back to their original text nodes once the animation ends,
+   so the English/Español toggle keeps working. */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('anim');
+
+  const SPLIT = 'h1, h2';
+  const FADE = [
+    '.hero .status', '.vsl-head', '.vsl-langs', '.big-cta', '.hero p.sub', '.host', '.hero .ctas', '.left', '.facts > div', '.vsl',
+    'main .label, section .label, .head .label', 'h3', 'section p', 'section li', 'summary',
+    '.step', '.how-list li', '.ticket-wrap', '.stat', '.portrait', '.stat',
+    'form label', 'form .btn', '.closing .btn', '.foot > div', '.disc',
+  ].join(',');
+  const skip = el => el.closest('nav, .aud, .sticky, .ok, .soldout, details:not([open]) > p');
+
+  const splitting = new Map();          // heading -> original child nodes
+  function split(h, base) {
+    const orig = [...h.childNodes];
+    splitting.set(h, orig);
+    let i = 0;
+    const build = nodes => nodes.map(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.nodeValue.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const inner = document.createElement('span'); inner.textContent = part;
+          inner.style.animationDelay = (base + i++ * 70) + 'ms';
+          w.appendChild(inner); frag.appendChild(w);
+        });
+        return frag;
+      }
+      if (n.nodeType === 1 && n.tagName !== 'BR') {
+        const c = n.cloneNode(false);
+        build([...n.childNodes]).forEach(x => c.appendChild(x));
+        return c;
+      }
+      return n.cloneNode(true);
+    });
+    const built = build(orig);
+    h.textContent = '';
+    built.forEach(x => h.appendChild(x));
+    h.classList.add('split', 'in');
+    setTimeout(() => restore(h), base + i * 70 + 900);
+  }
+  function restore(h) {
+    const orig = splitting.get(h);
+    if (!orig) return;
+    h.textContent = '';
+    orig.forEach(n => h.appendChild(n));
+    h.classList.remove('split');
+    splitting.delete(h);
+  }
+
+  const targets = [...document.querySelectorAll(SPLIT + ',' + FADE)].filter(el => !skip(el));
+  targets.forEach(el => el.classList.add(el.matches(SPLIT) ? 'rv-h' : 'rv'));
+
+  const io = new IntersectionObserver(entries => {
+    let n = 0;
+    entries.filter(e => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left)
+      .forEach(e => {
+        const el = e.target, delay = Math.min(n++ * 70, 700);
+        io.unobserve(el);
+        if (el.classList.contains('rv-h')) split(el, delay);
+        else {
+          el.style.transitionDelay = delay + 'ms'; el.classList.add('in');
+          el.addEventListener('transitionend', function done(ev) { if (ev.target !== el || ev.propertyName !== 'opacity') return; el.removeEventListener('transitionend', done); el.classList.remove('rv', 'in'); el.style.transitionDelay = ''; });
+        }
+      });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  targets.forEach(el => io.observe(el));
+
+  // switching language mid-animation: put headlines back first so every word gets translated
+  const toLang = applyLang;
+  applyLang = lang => { [...splitting.keys()].forEach(restore); toLang(lang); };
+})();
+
+</script>
+</body>
+</html>
