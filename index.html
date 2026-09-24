@@ -71,6 +71,19 @@ nav .btn{padding:10px 16px;font-size:14px}
 .btn.disabled{pointer-events:none;opacity:.45}
 .soldout{display:none;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;font-size:14px;color:var(--ink);background:var(--paper-2)}
 [hidden]{display:none!important}
+/* live sign-up popups */
+.toast{position:fixed;left:20px;bottom:20px;z-index:60;width:min(340px,calc(100vw - 32px));display:grid;grid-template-columns:44px 1fr 24px;gap:14px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:10px;padding:14px 14px 14px 14px;box-shadow:0 18px 40px -12px rgba(6,6,12,.28);
+  transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s}
+.toast.show{transform:none;opacity:1;pointer-events:auto}
+.toast .t-ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#3B8BFF,#1560D6);box-shadow:0 6px 14px -4px rgba(30,120,255,.6)}
+.toast .t-ic svg{width:22px;height:22px}
+.toast b{display:block;font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.toast span{display:block;font-size:14px;font-weight:600;color:var(--ink);line-height:1.35;margin-top:3px}
+.toast small{display:block;font-size:12px;color:var(--slate);margin-top:2px}
+.toast button{border:0;background:none;color:var(--slate);font-size:20px;line-height:1;cursor:pointer;padding:2px;align-self:start}
+.toast button:hover{color:var(--ink)}
+@media (max-width:960px){.toast{bottom:92px;left:16px}}
 /* entrance animations (only when JS adds .anim to <html>) */
 html.anim .rv{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
 html.anim .rv.in{opacity:1;transform:none}
@@ -186,7 +199,8 @@ html.anim .rv-h:not(.in){opacity:0}
   -webkit-mask:radial-gradient(circle var(--notch) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat;
   mask:radial-gradient(circle var(--notch) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat}
 .band{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 30px;background:var(--ink);font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
-.band b{font-weight:700;color:#fff}
+.band b{font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:12px}
+.band-logo{width:30px;height:30px;border-radius:6px;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
 .vip .band{background:var(--signal);color:rgba(255,255,255,.85)}
 .vip .band b{color:#fff}
 .day .body{padding:26px 30px 24px;flex:1;display:flex;flex-direction:column;position:relative}
@@ -393,7 +407,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
     </div>
     <div class="days">
       <div class="ticket-wrap"><div class="day">
-        <div class="band"><b>Admit one</b><span>Day 1 · General admission</span></div>
+        <div class="band"><b><img class="band-logo" src="assets/sarvx-logo.png" alt="SarvX Group">Admit one</b><span>Day 1 · General admission</span></div>
         <div class="body">
         <h3>The live training</h3>
         <ul>
@@ -411,7 +425,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
         </div>
       </div></div>
       <div class="ticket-wrap vip-wrap"><div class="day vip">
-        <div class="band"><b>Admit one · VIP</b><span>Day 2 · VIP</span></div>
+        <div class="band"><b><img class="band-logo" src="assets/sarvx-logo.png" alt="SarvX Group">Admit one · VIP</b><span>Day 2 · VIP</span></div>
         <div class="body">
         <h3>The implementation workshop</h3>
         <ul>
@@ -511,6 +525,7 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
           <option value="VIP ($99)">VIP, Day 1 + Day 2 workshop ($99)</option>
         </select>
       </label>
+      <label class="consent"><input type="checkbox" name="show_name" checked> Show my first name and last initial in the live sign-up updates on this page.</label>
       <label class="consent"><input type="checkbox" name="consent" required> I agree to receive event emails and reminder texts from SarvX Group. Message and data rates may apply. Reply STOP to opt out.</label>
       <div class="soldout" id="soldout" data-noi18n></div>
       <button class="btn signal" type="submit">Reserve my seat →</button>
@@ -557,6 +572,12 @@ footer{border-top:1px solid var(--line-soft);padding:48px 0 100px;font-size:13px
     <p class="disc">This site is not part of the Facebook or Meta website and is not endorsed by Meta Platforms, Inc. Facebook is a trademark of Meta Platforms, Inc.</p>
   </div>
 </footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" data-noi18n>
+  <div class="t-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M15 6v12" stroke-dasharray="2 2"/></svg></div>
+  <div><b></b><span></span><small></small></div>
+  <button type="button" aria-label="Close">×</button>
+</div>
 
 <div class="sticky"><a class="btn signal" href="#register">Reserve my free seat →</a></div>
 
@@ -665,10 +686,71 @@ form.addEventListener('submit', async e => {
     catch (err) { console.error(err); }
   } else if (EVENTBRITE_URL) { location.href = EVENTBRITE_URL; return; }
   if (window.fbq) fbq('track', 'CompleteRegistration');
+  if (data.show_name) announceSignup(data.first_name, data.last_name, kind);
   [...form.children].forEach(c => c.style.display = 'none');
   document.getElementById('ok').style.display = 'block';
 });
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ================= Live sign-up popups =================
+   Only real registrations that opted in ("Show my first name…") are shown, as "First L.".
+   Uses ntfy.sh (free, no account): messages stay on its servers for 12 hours. */
+const SIGNUP_POPUPS = true;                               // set to false to turn the popups off
+const FEED = 'https://ntfy.sh/sarvx-sll-signups-37478b34649f';
+const toastEl = document.getElementById('toast');
+const toastQueue = []; let toastBusy = false; let toastMuted = false; const seenIds = new Set(); let myId = null;
+
+const shortName = (first, last) => {
+  const clean = v => String(v || '').replace(/[^\p{L}\p{M}' -]/gu, '').trim();
+  const f = clean(first).split(/\s+/)[0] || '', l = clean(last);
+  if (!f) return null;
+  return f.charAt(0).toUpperCase() + f.slice(1, 18).toLowerCase() + (l ? ' ' + l.charAt(0).toUpperCase() + '.' : '');
+};
+const timeAgo = t => {
+  const m = Math.max(0, Math.round((Date.now() / 1000 - t) / 60));
+  if (LANG === 'es') return m < 1 ? 'justo ahora' : m < 60 ? `hace ${m} min` : `hace ${Math.round(m / 60)} h`;
+  return m < 1 ? 'just now' : m < 60 ? `${m} min ago` : `${Math.round(m / 60)} hr ago`;
+};
+function pushToast(ev) {
+  if (seenIds.has(ev.id) || ev.id === myId) return;
+  seenIds.add(ev.id);
+  let d; try { d = JSON.parse(ev.message); } catch (e) { return; }
+  const name = shortName(d.n, d.l);
+  if (!name || !['ga', 'vip'].includes(d.t)) return;
+  toastQueue.push({ name, kind: d.t, time: ev.time });
+  if (!toastBusy) nextToast();
+}
+function nextToast() {
+  if (toastMuted || !toastQueue.length) { toastBusy = false; return; }
+  toastBusy = true;
+  const t = toastQueue.shift(), T = I18N_UI[LANG];
+  toastEl.querySelector('b').textContent = t.name;
+  toastEl.querySelector('span').textContent = t.kind === 'vip' ? T.toastVip : T.toastGa;
+  toastEl.querySelector('small').textContent = timeAgo(t.time);
+  toastEl.classList.add('show');
+  setTimeout(() => { toastEl.classList.remove('show'); setTimeout(nextToast, 6000); }, 5500);
+}
+toastEl.querySelector('button').addEventListener('click', () => { toastEl.classList.remove('show'); toastMuted = true; });
+
+async function announceSignup(first, last, kind) {
+  try {
+    const r = await fetch(FEED, { method: 'POST', body: JSON.stringify({ n: String(first).slice(0, 40), l: String(last).slice(0, 1), t: kind }) });
+    const j = await r.json(); myId = j.id; seenIds.add(j.id);
+  } catch (e) {}
+}
+
+if (SIGNUP_POPUPS) {
+  setTimeout(async () => {
+    try {
+      const txt = await (await fetch(FEED + '/json?poll=1&since=12h', { cache: 'no-store' })).text();
+      txt.trim().split('\n').filter(Boolean).map(l => JSON.parse(l)).filter(e => e.event === 'message').slice(-10).reverse().forEach(pushToast);
+    } catch (e) {}
+    try {                                                     // live: new sign-ups while the page is open
+      const es = new EventSource(FEED + '/sse');
+      es.onmessage = e => { try { const ev = JSON.parse(e.data); if (ev.event === 'message') pushToast(ev); } catch (x) {} };
+    } catch (e) {}
+  }, 4000);
+}
 
 /* ================= English / Español ================= */
 const I18N_UI = {
@@ -679,6 +761,7 @@ const I18N_UI = {
     allOut: 'All seats are taken. Email Elias@sarvx.io to join the waitlist.',
     justSoldOut: 'Sorry, that ticket just sold out. Pick another option above or email Elias@sarvx.io for the waitlist.',
     title: 'Sell Like a Leader | Free Virtual Sales Training | SarvX Group',
+    toastGa: 'Just reserved a free ticket', toastVip: 'Just reserved a VIP ticket',
   },
   es: {
     opt: { ga: 'Entrada general, Día 1 (Gratis)', vip: 'VIP, Día 1 + taller del Día 2 ($99)' },
@@ -687,6 +770,7 @@ const I18N_UI = {
     allOut: 'Todos los lugares están ocupados. Escribe a Elias@sarvx.io para entrar a la lista de espera.',
     justSoldOut: 'Lo sentimos, ese boleto se acaba de agotar. Elige otra opción o escribe a Elias@sarvx.io para la lista de espera.',
     title: 'Vende como un líder | Capacitación de ventas virtual gratis | SarvX Group',
+    toastGa: 'Acaba de reservar un boleto gratis', toastVip: 'Acaba de reservar un boleto VIP',
   },
 };
 
@@ -747,7 +831,7 @@ const ES = {
   "Cold calling / inside sales": "Llamadas en frío / ventas internas", "Other": "Otro", "My role": "Mi rol", "Business owner": "Dueño de negocio",
   "Sales manager / team lead": "Gerente de ventas / líder de equipo", "Salesperson": "Vendedor", "Ticket": "Boleto",
   "I agree to receive event emails and reminder texts from SarvX Group. Message and data rates may apply. Reply STOP to opt out.": "Acepto recibir correos y mensajes de texto de recordatorio de SarvX Group sobre el evento. Pueden aplicarse tarifas de mensajes y datos. Responde STOP para cancelar.",
-  "Reserve my seat →": "Reservar mi lugar →", "You're registered.": "¡Ya estás registrado!",
+  "Reserve my seat →": "Reservar mi lugar →", "Show my first name and last initial in the live sign-up updates on this page.": "Mostrar mi nombre y la inicial de mi apellido en las actualizaciones de registros en esta página.", "You're registered.": "¡Ya estás registrado!",
   "We'll email you the dates and live link as soon as they're confirmed.": "Te enviaremos por correo las fechas y el enlace en vivo en cuanto se confirmen.",
   "Common questions": "Preguntas frecuentes", "Is it really free?": "¿De verdad es gratis?",
   "Yes. Day 1 general admission is free. The Day 2 VIP workshop is optional and costs $99.": "Sí. La entrada general del Día 1 es gratis. El taller VIP del Día 2 es opcional y cuesta $99.",

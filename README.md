@@ -40,3 +40,9 @@ Free virtual sales training for Elias Saracco (SarvX Group), styled to match the
 ## English / Español
 - There's an EN/ES toggle in the top bar. Spanish is shown automatically for Spanish-language browsers, and `?lang=es` forces it (useful for Spanish ads).
 - Translations are in the `ES` list near the bottom of `index.html`. If you change English text on the page, update its entry there too.
+
+## Live sign-up popups
+- When someone registers and leaves "Show my first name and last initial…" checked (it's on by default), visitors see a popup in the corner, e.g. "IRENA B. · Just reserved a free ticket · 2 min ago".
+- Only real registrations appear. Nothing is made up, and if nobody has signed up, no popup shows.
+- It uses ntfy.sh, a free service with no account. The topic is in `FEED` in `index.html`. Only the first name, last initial, and ticket type are sent, and they're kept for 12 hours.
+- To turn the popups off, set `SIGNUP_POPUPS = false` in `index.html`.
