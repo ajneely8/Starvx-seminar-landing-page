@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Creative</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <script>
 /* Edit these, then run:  node render.mjs */
 window.EVENT = {
-  date:  "Dates announced soon",   // e.g. "Nov 12–13, 2026"
-  where: "Live online",
-  vip:   "$99",
-  url:   "sarvx.io",               // registration URL shown on flyers
+  date:   { en: "December 2026", es: "Diciembre 2026" },   // e.g. "Dec 11–12, 2026"
+  vip:    "$99",
+  gaSeats: 500, vipSeats: 100,
+  url:    "sarvx.io",                                      // registration URL shown on flyers
 };
 </script>
 <style>
@@ -19,6 +19,7 @@ window.EVENT = {
 html,body{width:100%;height:100%;overflow:hidden;background:#fff}
 body{font-family:'Inter Tight',sans-serif;color:var(--ink-2);-webkit-font-smoothing:antialiased}
 .canvas{position:relative;width:100vw;height:100vh;overflow:hidden;background:var(--paper)}
+.canvas.tint{background:radial-gradient(ellipse 80% 60% at 70% 60%,rgba(30,120,255,.12),transparent 70%),var(--paper-2)}
 .content{position:absolute;display:flex;flex-direction:column}
 .label{font-family:'JetBrains Mono',monospace;font-size:1.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);white-space:nowrap}
 .status{display:inline-flex;align-self:flex-start;align-items:center;gap:1.2rem;border:.15rem solid var(--line);border-radius:.3rem;padding:1.1rem 1.6rem;background:#fff}
@@ -26,7 +27,7 @@ body{font-family:'Inter Tight',sans-serif;color:var(--ink-2);-webkit-font-smooth
 h1{font-family:'Noto Sans Display',sans-serif;font-weight:700;color:var(--ink);letter-spacing:-.035em;line-height:1.02}
 .accent{color:var(--signal)}
 .sub{font-size:3.3rem;line-height:1.4;color:var(--ink-2)}
-.logo{height:8rem;display:block;border-radius:.5rem}
+.logo{height:8rem;width:8rem;flex:none;align-self:flex-start;object-fit:contain;display:block;border-radius:.5rem}
 .facts{display:flex;border-top:.15rem solid var(--soft)}
 .facts div{padding:2rem 3.2rem 0 0;margin-right:3.2rem;border-right:.15rem solid var(--soft)}
 .facts div:last-child{border-right:0;margin-right:0}
@@ -52,6 +53,31 @@ h1{font-family:'Noto Sans Display',sans-serif;font-weight:700;color:var(--ink);l
 .topics li em{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:2rem;color:var(--signal);font-weight:500}
 .spacer{flex:1}
 .row{display:flex;align-items:center;justify-content:space-between;gap:3rem}
+
+/* ticket graphic (concept D) — same look as the landing page passes */
+.stack{position:absolute}
+.tkw{position:absolute;filter:drop-shadow(0 0 .15rem rgba(6,6,12,.5)) drop-shadow(0 3rem 5rem rgba(6,6,12,.2))}
+.tk{--stub:13rem;--n:1.8rem;width:58rem;background:#fff;border-radius:1.8rem;overflow:hidden;position:relative;
+  -webkit-mask:radial-gradient(circle var(--n) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--n) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle var(--n) at 0 calc(100% - var(--stub)),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--n) at 100% calc(100% - var(--stub)),#0000 98%,#000) right/51% 100% no-repeat}
+.tk .bd{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:2rem 3.4rem;background:var(--ink);font:700 1.8rem 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.tk .bd span{display:flex;align-items:center;gap:1.6rem}
+.tk .bd img{width:4.6rem;height:4.6rem;border-radius:.7rem}
+.tk .bd em{font-style:normal;font-weight:500;color:rgba(255,255,255,.72)}
+.tk.vip .bd{background:var(--signal);padding-right:14rem}
+.tk .in{padding:3.4rem 3.4rem 3rem}
+.tk .t{font-family:'Noto Sans Display',sans-serif;font-size:4rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
+.tk .p{display:flex;align-items:baseline;gap:1.8rem;margin-top:1.6rem;font-family:'Noto Sans Display',sans-serif;font-size:11rem;font-weight:700;letter-spacing:-.05em;line-height:.9;color:var(--ink)}
+.tk.vip .p{color:var(--signal)}
+.tk .p small{font:700 1.8rem 'JetBrains Mono',monospace;letter-spacing:.16em;color:var(--slate);text-transform:uppercase}
+.tk .m{margin-top:2.4rem;padding-top:2.4rem;border-top:.15rem solid var(--soft);font-size:2.5rem;color:var(--ink-2)}
+.tk .m b{color:var(--ink)}
+.tk .tear{border-top:.3rem dashed #9FB3CC;margin:0 3rem}
+.tk .st{height:var(--stub);padding:0 3.4rem;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#F7F9FD,#EDF2FA)}
+.tk.vip .st{background:linear-gradient(180deg,#F2F7FF,#E1ECFF)}
+.tk .st span{font:500 1.7rem 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--slate);text-transform:uppercase}
+.tk .st i{display:block;width:16rem;height:4.6rem;opacity:.85;background:repeating-linear-gradient(90deg,var(--ink) 0 .3rem,#0000 .3rem .6rem,var(--ink) .6rem .75rem,#0000 .75rem 1.2rem,var(--ink) 1.2rem 1.65rem,#0000 1.65rem 1.8rem,var(--ink) 1.8rem 1.95rem,#0000 1.95rem 2.4rem)}
+.tk .rib{position:absolute;z-index:3;top:3.4rem;right:-6.4rem;width:26rem;transform:rotate(45deg);text-align:center;padding:1.2rem 0;background:var(--ink);color:#fff;font:700 1.9rem 'JetBrains Mono',monospace;letter-spacing:.3em;border-top:.15rem solid rgba(255,255,255,.35);border-bottom:.15rem solid rgba(255,255,255,.35)}
 </style>
 </head>
 <body>
@@ -60,44 +86,101 @@ h1{font-family:'Noto Sans Display',sans-serif;font-weight:700;color:var(--ink);l
 const p = new URLSearchParams(location.search);
 const W = innerWidth, H = innerHeight, r = W / H;
 const concept = p.get('c') || 'a';
+const L = p.get('lang') === 'es' ? 'es' : 'en';
+document.documentElement.lang = L;
 document.documentElement.style.fontSize = (Math.min(W, H) / (r >= 3 ? 50 : 100)) + 'px';
 const E = window.EVENT;
 const c = document.getElementById('c');
 const layout = r >= 3 ? 'strip' : r >= 1.6 ? 'wide' : r > 0.9 ? 'square' : r > 0.7 ? (p.get('flyer') ? 'flyer' : 'portrait') : 'story';
 
+const T = {
+  en: {
+    status: 'Free live virtual training', trainer: 'Your trainer', founder: 'Founder, SarvX Group',
+    twoDay: 'Two-day format', free: 'Free', vipWs: `VIP workshop ${E.vip}`, live: 'Live online', norcal: 'Northern California',
+    reserve: 'Reserve a seat', freeSeat: 'Free seat', register: 'Register free', claim: 'Claim your ticket',
+    topics: ['The art of sales', 'Negotiation psychology', 'Ethical selling', 'Sales leadership', 'Objection prevention'],
+    HL: { a: `Sell like<br>a <span class="accent">leader.</span>`, b: `Stop chasing the close. <span class="accent">Lead the conversation.</span>`,
+          c: `Five skills.<br><span class="accent">One process.</span>`, d: `Your free ticket <span class="accent">is waiting.</span>` },
+    SUB: { a: `A free, live virtual sales training for Northern California salespeople and business owners.`,
+           b: `A free, live virtual sales training for Northern California salespeople and business owners.`,
+           c: `Learn the complete five-step sales process, free and live.`,
+           d: `${E.gaSeats} free seats for the live training. ${E.vipSeats} VIP seats for the Day 2 workshop.` },
+    strip: `with Elias Saracco · Day 2 VIP workshop ${E.vip}`,
+    tk: { admit: 'Admit one', day1: 'Day 1', day2: 'Day 2', ga: 'The live training', vip: 'The implementation workshop', one: 'One-time',
+          gaM: `<b>Free virtual experience</b> · Live online`, vipM: `<b>Live Q&amp;A</b> · Bring a real sales issue` },
+  },
+  es: {
+    status: 'Capacitación virtual gratis y en vivo', trainer: 'Tu instructor', founder: 'Fundador, SarvX Group',
+    twoDay: 'Formato de dos días', free: 'Gratis', vipWs: `Taller VIP ${E.vip}`, live: 'En vivo en línea', norcal: 'Norte de California',
+    reserve: 'Reserva tu lugar', freeSeat: 'Lugar gratis', register: 'Regístrate gratis', claim: 'Reclama tu boleto',
+    topics: ['El arte de vender', 'Psicología de la negociación', 'Venta ética', 'Liderazgo en ventas', 'Prevención de objeciones'],
+    HL: { a: `Vende como<br>un <span class="accent">líder.</span>`, b: `Deja de perseguir el cierre. <span class="accent">Lidera la conversación.</span>`,
+          c: `Cinco habilidades.<br><span class="accent">Un proceso.</span>`, d: `Tu boleto gratis <span class="accent">te está esperando.</span>` },
+    SUB: { a: `Una capacitación de ventas gratis, en vivo y virtual para vendedores y dueños de negocios del Norte de California.`,
+           b: `Una capacitación de ventas gratis, en vivo y virtual para vendedores y dueños de negocios del Norte de California.`,
+           c: `Aprende el proceso de ventas completo de cinco pasos, gratis y en vivo.`,
+           d: `${E.gaSeats} lugares gratis para la capacitación en vivo. ${E.vipSeats} lugares VIP para el taller del Día 2.` },
+    strip: `con Elias Saracco · Taller VIP del Día 2 ${E.vip}`,
+    tk: { admit: 'Pase de entrada', day1: 'Día 1', day2: 'Día 2', ga: 'La capacitación en vivo', vip: 'El taller de implementación', one: 'Pago único',
+          gaM: `<b>Experiencia virtual gratis</b> · En vivo`, vipM: `<b>Preguntas en vivo</b> · Trae un reto real` },
+  },
+}[L];
+const date = E.date[L];
+
 const logo = `<img class="logo" src="../assets/sarvx-logo.png" alt="SarvX Group">`;
-const status = `<div class="status label"><i></i>Free live virtual training</div>`;
+const status = `<div class="status label"><i></i>${T.status}</div>`;
 const photo = (style, who = true, kind = 'band') => `<div class="photo ${kind}" style="${style}">
   <img class="head" src="../assets/elias.jpg" alt="Elias Saracco">
-  ${who ? `<div class="who">${kind === 'band' ? '<span class="label">Your trainer</span>' : ''}<b>Elias Saracco</b><span>Founder, SarvX Group</span></div>` : ''}
+  ${who ? `<div class="who">${kind === 'band' ? `<span class="label">${T.trainer}</span>` : ''}<b>Elias Saracco</b><span>${T.founder}</span></div>` : ''}
   ${kind === 'side' ? '<img class="mark" src="../assets/sarvx-logo.png" alt="">' : ''}</div>`;
 const facts = (n = 3) => `<div class="facts">
-  <div><b>${E.date}</b><span>Two-day format</span></div>
-  <div><b>Free</b><span>VIP workshop ${E.vip}</span></div>
-  ${n > 2 ? `<div><b>${E.where}</b><span>Northern California</span></div>` : ''}</div>`;
+  <div><b>${date}</b><span>${T.twoDay}</span></div>
+  <div><b>${T.free}</b><span>${T.vipWs}</span></div>
+  ${n > 2 ? `<div><b>${T.live}</b><span>${T.norcal}</span></div>` : ''}</div>`;
 const cta = t => `<div class="cta">${t} →</div>`;
-const topics = `<ul class="topics">
-  <li><em>01</em>The art of sales</li><li><em>02</em>Negotiation psychology</li><li><em>03</em>Ethical selling</li>
-  <li><em>04</em>Sales leadership</li><li><em>05</em>Objection prevention</li></ul>`;
-const HL = {
-  a: `Sell like<br>a <span class="accent">leader.</span>`,
-  b: `Stop chasing the close. <span class="accent">Lead the conversation.</span>`,
-  c: `Five skills.<br><span class="accent">One process.</span>`,
-};
-const SUB = {
-  a: `A free, live virtual sales training for Northern California salespeople and business owners.`,
-  b: `A free, live virtual sales training for Northern California salespeople and business owners.`,
-  c: `Learn the complete five-step sales process, free and live.`,
-};
+const topics = `<ul class="topics">${T.topics.map((t, i) => `<li><em>0${i + 1}</em>${t}</li>`).join('')}</ul>`;
+const HL = T.HL, SUB = T.SUB;
+
+// ticket pair for concept D
+const ticket = vip => `<div class="tk ${vip ? 'vip' : ''}">
+  ${vip ? '<div class="rib">VIP</div>' : ''}
+  <div class="bd"><span><img src="../assets/sarvx-logo.png" alt="">${T.tk.admit}${vip ? ' · VIP' : ''}</span>${vip ? '' : `<em>${T.tk.day1}</em>`}</div>
+  <div class="in"><div class="t">${vip ? T.tk.vip : T.tk.ga}</div>
+    <div class="p">${vip ? E.vip : T.free}<small>${vip ? T.tk.one : date}</small></div>
+    <div class="m">${vip ? T.tk.vipM : T.tk.gaM}</div></div>
+  <div class="tear"></div>
+  <div class="st"><span>SLL · ${vip ? 'VIP · D2' : 'GA · D1'} · 2026</span><i></i></div></div>`;
+const stack = (style, scale) => `<div class="stack" style="${style};transform:scale(${scale});transform-origin:center">
+  <div class="tkw" style="left:14rem;top:-6rem;transform:rotate(7deg)">${ticket(true)}</div>
+  <div class="tkw" style="left:0;top:0;transform:rotate(-5deg)">${ticket(false)}</div></div>`;
 
 let html = '';
-if (layout === 'strip') {
+if (concept === 'd') {
+  c.classList.add('tint');
+  if (layout === 'wide') {
+    html = `${stack('right:22rem;top:50%;margin-top:-30rem;width:58rem;height:60rem', 0.9)}
+    <div class="content" style="left:7.5rem;width:48%;top:7rem;bottom:7rem">
+      ${logo}<div class="spacer"></div>${status}
+      <h1 style="font-size:12rem;margin:3rem 0 2.6rem">${HL.d}</h1>
+      <p class="sub" style="font-size:3rem">${SUB.d}</p>
+      <div class="spacer"></div>${cta(T.claim)}</div>`;
+  } else {
+    const tall = layout === 'story' ? 1 : layout === 'portrait' ? 0.6 : 0;
+    const top = layout === 'story' ? '14%' : '7rem', bottom = layout === 'story' ? '21%' : '7rem';
+    html = `<div class="content" style="left:7rem;right:7rem;top:${top};bottom:${bottom}">
+      <div class="row">${logo}${status}</div>
+      <h1 style="font-size:${10 + tall * 2}rem;margin-top:${3 + tall * 3}rem">${HL.d}</h1>
+      <div class="spacer"></div>
+      <div class="row" style="align-items:flex-end">${cta(T.claim)}<div class="label" style="text-align:right;line-height:1.6">${date}<br>${T.live}</div></div></div>
+    ${stack(`left:50%;margin-left:-36rem;top:${layout === 'story' ? 42 : layout === 'portrait' ? 41 : 38}%;width:58rem;height:60rem`, layout === 'square' ? 0.7 : layout === 'portrait' ? 0.86 : 0.92)}`;
+  }
+} else if (layout === 'strip') {
   const banner = !!p.get('banner');   // LinkedIn profile banner: keep the left ~25% clear for the profile photo
   html = `${photo(`right:0;top:0;bottom:0;width:30%`, false, 'side')}
   <div class="content" style="left:${banner ? '26%' : '4.5%'};right:33%;top:0;bottom:0;justify-content:center;gap:2.4rem">
-    <div class="row" style="justify-content:flex-start;gap:2.4rem"><div class="label" style="font-size:1.7rem;color:var(--signal)">Free live virtual training</div><div class="label" style="font-size:1.7rem">${E.date}</div></div>
-    <h1 style="font-size:13rem;white-space:nowrap">Sell like a <span class="accent">leader.</span></h1>
-    <div class="row" style="justify-content:flex-start;gap:2.4rem"><img src="../assets/sarvx-logo.png" style="height:6rem;border-radius:.4rem" alt=""><div style="font-size:2.4rem;color:var(--slate);white-space:nowrap">with Elias Saracco · Day 2 VIP workshop ${E.vip}</div></div>
+    <div class="row" style="justify-content:flex-start;gap:2.4rem"><div class="label" style="font-size:1.7rem;color:var(--signal)">${T.status}</div><div class="label" style="font-size:1.7rem">${date}</div></div>
+    <h1 style="font-size:13rem;white-space:nowrap">${HL.a.replace('<br>', ' ')}</h1>
+    <div class="row" style="justify-content:flex-start;gap:2.4rem"><img src="../assets/sarvx-logo.png" style="height:6rem;border-radius:.4rem" alt=""><div style="font-size:2.4rem;color:var(--slate);white-space:nowrap">${T.strip}</div></div>
   </div>`;
 } else if (layout === 'wide') {
   html = `${photo(`right:0;top:0;bottom:0;width:36%`, true, 'side')}
@@ -109,7 +192,7 @@ if (layout === 'strip') {
     <h1 style="font-size:${concept === 'b' ? 12 : 15}rem;margin:3rem 0 2.6rem">${HL[concept]}</h1>
     ${concept === 'c' ? '' : `<p class="sub" style="font-size:3rem">${SUB[concept]}</p>`}
     <div class="spacer"></div>
-    <div class="row" style="align-items:flex-end">${facts(2)}${cta('Reserve a seat')}</div>
+    <div class="row" style="align-items:flex-end">${facts(2)}${cta(T.reserve)}</div>
   </div>`;
 } else if (layout === 'square') {
   const withList = concept === 'c';
@@ -120,14 +203,14 @@ if (layout === 'strip') {
     <h1 style="font-size:${concept === 'b' ? 9.5 : 12}rem">${HL[concept]}</h1>
     ${withList ? `<div style="margin-top:3.6rem">${topics}</div>` : `<p class="sub" style="margin-top:2.6rem">${SUB[concept]}</p>`}
     <div class="spacer"></div>
-    <div class="row" style="align-items:flex-end">${facts(2)}${cta(withList ? 'Free seat' : 'Reserve a seat')}</div>
+    <div class="row" style="align-items:flex-end">${facts(2)}${cta(withList ? T.freeSeat : T.reserve)}</div>
   </div>
-  ${withList ? '' : `<div class="bracket tl" style="left:3rem;top:3rem;border-color:var(--signal)"></div>`}`;
+  ${withList ? '' : `<div class="bracket tl" style="left:3rem;top:3rem"></div>`}`;
 } else if (layout === 'portrait' || layout === 'flyer') {
   const flyer = layout === 'flyer', withList = concept === 'c' || flyer;
   const ph = withList ? (flyer ? 24 : 0) : 34;
   html = `${ph ? photo(`left:0;right:0;top:0;height:${ph}%`) : ''}
-  ${ph ? `<div class="bracket tl" style="left:3rem;top:3rem;border-color:var(--signal)"></div>` : ''}
+  ${ph ? `<div class="bracket tl" style="left:3rem;top:3rem"></div>` : ''}
   <div class="content" style="left:7rem;right:7rem;top:${ph ? `calc(${ph}% + 5rem)` : '7rem'};bottom:7rem">
     <div class="row">${ph ? status + logo : logo + status}</div>
     <div class="spacer" style="max-height:6rem"></div>
@@ -136,7 +219,7 @@ if (layout === 'strip') {
     ${withList ? `<div style="margin-top:3.6rem">${topics}</div>` : ''}
     <div class="spacer"></div>
     ${facts(flyer ? 3 : 2)}
-    <div class="row" style="margin-top:4rem">${cta(flyer ? 'Register free' : 'Reserve a seat')}${flyer ? `<div style="text-align:right"><b style="font-size:3.2rem;color:var(--ink)">${E.url}</b><div style="font-size:2.4rem;color:var(--slate)">(916) 500-8503</div></div>` : ''}</div>
+    <div class="row" style="margin-top:4rem">${cta(flyer ? T.register : T.reserve)}${flyer ? `<div style="text-align:right"><b style="font-size:3.2rem;color:var(--ink)">${E.url}</b><div style="font-size:2.4rem;color:var(--slate)">(916) 500-8503</div></div>` : ''}</div>
   </div>`;
 } else { // story 9:16: keep the top ~14% and bottom ~20% free of key text
   const withList = concept === 'c';
@@ -150,7 +233,7 @@ if (layout === 'strip') {
     ${withList ? `<div style="margin-top:4rem">${topics}</div>` : ''}
     <div class="spacer"></div>
     ${facts(2)}
-    <div style="margin-top:4.5rem">${cta('Reserve a seat')}</div>
+    <div style="margin-top:4.5rem">${cta(T.reserve)}</div>
   </div>`;
 }
 c.innerHTML = html;
@@ -161,6 +244,19 @@ document.fonts.ready.then(() => {
   let size = parseFloat(getComputedStyle(h1).fontSize); const floor = size * 0.55;
   const over = () => box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1 || h1.scrollWidth > h1.clientWidth + 1;
   while (over() && size > floor) { size *= 0.96; h1.style.fontSize = size + 'px'; }
+  // ticket stack (concept D): keep it clear of the headline above and the button below
+  const st = c.querySelector('.stack'); if (!st || layout === 'wide') return;
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const tks = [...st.querySelectorAll('.tkw')].map(t => t.getBoundingClientRect());
+  const top = Math.min(...tks.map(r => r.top)), bot = Math.max(...tks.map(r => r.bottom));
+  const floorY = h1.getBoundingClientRect().bottom + 2 * rem, ceilY = c.querySelector('.cta').getBoundingClientRect().top - 2 * rem;
+  let scale = parseFloat(st.style.transform.replace('scale(', ''));
+  const avail = ceilY - floorY, need = bot - top;
+  if (need > avail) { const k = avail / need; scale *= k; st.style.transform = 'scale(' + scale + ')'; }
+  const r2 = [...st.querySelectorAll('.tkw')].map(t => t.getBoundingClientRect());
+  const t2 = Math.min(...r2.map(r => r.top)), b2 = Math.max(...r2.map(r => r.bottom));
+  const shift = (floorY + ceilY) / 2 - (t2 + b2) / 2;
+  st.style.top = (st.offsetTop + shift) + 'px';
 });
 </script>
 </body>

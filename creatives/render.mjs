@@ -45,6 +45,19 @@ const JOBS = [
   ['meta-ad-C-square-1080x1080', 1080, 1080, 'c=c'],
   ['meta-ad-C-feed-1080x1350', 1080, 1350, 'c=c'],
   ['meta-ad-C-story-reels-1080x1920', 1080, 1920, 'c=c'],
+  // Meta ads — concept D "Your free ticket is waiting" (ticket graphic, matches the landing page)
+  ['meta-ad-D-square-1080x1080', 1080, 1080, 'c=d'],
+  ['meta-ad-D-feed-1080x1350', 1080, 1350, 'c=d'],
+  ['meta-ad-D-story-reels-1080x1920', 1080, 1920, 'c=d'],
+  ['meta-ad-D-landscape-1200x628', 1200, 628, 'c=d'],
+  // Spanish versions (for Spanish-speaking audiences; link to the page with ?lang=es)
+  ['ES-meta-ad-A-square-1080x1080', 1080, 1080, 'c=a&lang=es'],
+  ['ES-meta-ad-A-feed-1080x1350', 1080, 1350, 'c=a&lang=es'],
+  ['ES-meta-ad-A-story-reels-1080x1920', 1080, 1920, 'c=a&lang=es'],
+  ['ES-meta-ad-D-square-1080x1080', 1080, 1080, 'c=d&lang=es'],
+  ['ES-meta-ad-D-feed-1080x1350', 1080, 1350, 'c=d&lang=es'],
+  ['ES-meta-ad-D-story-reels-1080x1920', 1080, 1920, 'c=d&lang=es'],
+  ['ES-facebook-event-cover-1920x1005', 1920, 1005, 'c=a&lang=es'],
   // Flyers
   ['flyer-digital-1080x1350', 1080, 1350, 'c=a'],
   ['flyer-print-letter-2550x3300', 1275, 1650, 'c=a&flyer=1', 2],

@@ -1,0 +1,336 @@
+<title>Sell Like a Leader Marketing Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F5F7FC; --surface:#FFFFFF; --ink:#06060C; --text:#1A1A24; --slate:#54718E; --line:#D5DFEC; --line-soft:#E6ECF5;
+  --signal:#1E78FF; --signal-soft:rgba(30,120,255,.08); --band:#06060C; --band-text:#FFFFFF;
+  --display:'Noto Sans Display',system-ui,sans-serif; --sans:'Inter Tight',system-ui,-apple-system,Segoe UI,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--ground:#0B0D14;--surface:#131826;--ink:#F1F4FA;--text:#D9E0EC;--slate:#8FA6C0;--line:#26304A;--line-soft:#1D2538;--signal:#4A93FF;--signal-soft:rgba(74,147,255,.12);--band:#000000;--band-text:#FFFFFF}}
+:root[data-theme="dark"]{color-scheme:dark;--ground:#0B0D14;--surface:#131826;--ink:#F1F4FA;--text:#D9E0EC;--slate:#8FA6C0;--line:#26304A;--line-soft:#1D2538;--signal:#4A93FF;--signal-soft:rgba(74,147,255,.12);--band:#000000;--band-text:#FFFFFF}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;padding-inline:clamp(16px,4vw,56px);padding-block:0 80px}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);color:var(--ink);letter-spacing:-.02em;line-height:1.1;text-wrap:balance;margin:0}
+.lbl{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate)}
+p{margin:0}
+
+/* header styled like the event ticket */
+.pass{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.pass-band{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--band);color:var(--band-text);padding:14px 24px;font:700 12px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.pass-band span{display:flex;align-items:center;gap:12px}
+.pass-band img{width:30px;height:30px;border-radius:6px}
+.pass-band em{font-style:normal;font-weight:500;opacity:.75}
+.pass-body{padding:clamp(24px,4vw,44px) clamp(20px,3vw,40px);display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,56px);align-items:end}
+.pass-body h1{font-size:clamp(34px,5vw,60px)}
+.pass-body h1 b{color:var(--signal);font-weight:700}
+.pass-body p{margin-top:14px;max-width:60ch;color:var(--slate);font-size:17px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+.facts div{border-top:1px solid var(--line-soft);padding-top:10px}
+.facts b{display:block;font-size:17px;color:var(--ink);font-weight:600}
+.facts span{font-size:13px;color:var(--slate)}
+.pass-tear{border-top:2px dashed var(--line);margin:0 24px}
+.pass-stub{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 24px;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+
+/* sticky platform tabs */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-top:22px;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(10px);padding-block:10px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{flex:none;text-decoration:none;font:600 14px var(--sans);color:var(--text);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 16px}
+nav.tabs a:hover{border-color:var(--signal);color:var(--signal)}
+nav.tabs a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+section{margin-top:56px;scroll-margin-top:70px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}
+.sec-head h2{font-size:clamp(26px,3vw,36px);margin-top:6px}
+.sec-head p{color:var(--slate);max-width:56ch;font-size:15px}
+
+.rules{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:14px}
+.rule b{display:block;color:var(--ink);margin-bottom:4px}
+
+.gallery{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+figure .img{background:var(--line-soft);display:grid;place-items:center;padding:10px;aspect-ratio:4/3}
+figure img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:4px;box-shadow:0 4px 14px -6px rgba(6,6,12,.3)}
+figcaption{padding:10px 12px;display:grid;gap:2px}
+figcaption b{font-size:13px;color:var(--ink);font-weight:600}
+figcaption code{font:11px var(--mono);color:var(--slate);word-break:break-all}
+figcaption .size{font:600 10px var(--mono);letter-spacing:.1em;color:var(--signal);text-transform:uppercase}
+
+.copies{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.copy{background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column}
+.copy-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px 0 16px}
+.copy-top .lbl{color:var(--signal)}
+.copy-top .for{font:11px var(--mono);color:var(--slate)}
+.copy pre{margin:0;padding:10px 16px 16px;white-space:pre-wrap;word-wrap:break-word;font:15px/1.55 var(--sans);color:var(--text);flex:1}
+.cbtn{font:600 12px var(--sans);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer;flex:none}
+.cbtn:hover{border-color:var(--signal);color:var(--signal)}
+.cbtn.done{background:var(--signal);border-color:var(--signal);color:#fff}
+.lang-es{font:700 10px var(--mono);letter-spacing:.1em;border-radius:4px;padding:2px 6px;background:var(--signal-soft);color:var(--signal);margin-left:6px}
+
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tablewrap{margin-top:22px;overflow-x:auto}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+td b{color:var(--ink)}
+.setup{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.setup div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px}
+.setup b{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:4px}
+.foot{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--slate);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot span.sel{user-select:all;color:var(--text)}
+
+@media (max-width:760px){.pass-body{grid-template-columns:1fr}.copies{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="pass">
+    <div class="pass-band"><span><img src="assets/sarvx-logo.png" alt="SarvX Group">Marketing kit · Admit one</span><em>Eventbrite · Facebook · LinkedIn · Meta ads</em></div>
+    <div class="pass-body">
+      <div>
+        <div class="lbl">SarvX Group · Elias Saracco</div>
+        <h1 style="margin-top:10px">Sell Like a Leader <b>marketing kit</b></h1>
+        <p>Every image, sized for each platform, plus ready-to-paste copy in English and Spanish. It all points to the landing page, where seats count down live.</p>
+      </div>
+      <div class="facts">
+        <div><b>December 2026</b><span>Live online · two days</span></div>
+        <div><b>Northern California</b><span>Salespeople &amp; owners</span></div>
+        <div><b>Day 1 · Free</b><span>500 seats</span></div>
+        <div><b>Day 2 VIP · $99</b><span>100 seats · bring a real sales issue</span></div>
+      </div>
+    </div>
+    <div class="pass-tear"></div>
+    <div class="pass-stub"><span>SLL · Kit · 2026</span><span>34 images · EN + ES</span></div>
+  </div>
+
+  <nav class="tabs" aria-label="Platforms">
+    <a href="#rules">Before you post</a><a href="#eventbrite">Eventbrite</a><a href="#facebook">Facebook</a><a href="#linkedin">LinkedIn</a><a href="#meta">Meta ads</a><a href="#spanish">Spanish</a><a href="#flyers">Flyers</a>
+  </nav>
+
+  <section id="rules">
+    <div class="sec-head"><div><div class="lbl">Read first</div><h2>Before you post</h2></div><p>Five rules that keep ads approved and keep the messaging honest.</p></div>
+    <div class="rules">
+      <div class="rule"><b>No income claims in ads</b>Keep "$100K/month" out of Meta ads and ad images. Use it only in organic posts, with the disclaimer.</div>
+      <div class="rule"><b>No personal-attribute hooks</b>Write "For salespeople in Northern California", not "Are you struggling in sales?"</div>
+      <div class="rule"><b>Implementation pricing stays live-only</b>Never mention the $5,000 + $2,500/mo offer in promos.</div>
+      <div class="rule"><b>Real scarcity only</b>500 free and 100 VIP seats are real caps that count down on the page. Never claim fewer than it shows.</div>
+      <div class="rule"><b>Fill the link</b>Replace <code>[landing page URL]</code>. Spanish ads use <code>?lang=es</code>.</div>
+    </div>
+  </section>
+
+  <section id="eventbrite">
+    <div class="sec-head"><div><div class="lbl">Platform</div><h2>Eventbrite</h2></div><p>One 2:1 banner, the listing copy, and the ticket setup.</p></div>
+    <div class="gallery" data-imgs="eventbrite"></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ticket</th><th>Price</th><th>Qty</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><b>General Admission, Day 1</b></td><td>Free</td><td>500</td><td>The full live virtual training and the complete five-step sales process.</td></tr>
+        <tr><td><b>VIP, Day 1 + Day 2 workshop</b></td><td>$99</td><td>100</td><td>Everything in GA plus the Day 2 workshop: join Elias live in a smaller group, ask questions, and bring a real sales issue.</td></tr>
+      </tbody></table></div>
+    <div class="copies" data-copy="eventbrite"></div>
+  </section>
+
+  <section id="facebook">
+    <div class="sec-head"><div><div class="lbl">Platform</div><h2>Facebook</h2></div><p>Event cover, feed images, a story, and six posts for Elias's page and profile.</p></div>
+    <div class="gallery" data-imgs="facebook"></div>
+    <div class="copies" data-copy="facebook"></div>
+  </section>
+
+  <section id="linkedin">
+    <div class="sec-head"><div><div class="lbl">Platform</div><h2>LinkedIn</h2></div><p>Event cover, profile banner, and posts from Elias's personal profile, which reach more people than the company page.</p></div>
+    <div class="gallery" data-imgs="linkedin"></div>
+    <div class="copies" data-copy="linkedin"></div>
+  </section>
+
+  <section id="meta">
+    <div class="sec-head"><div><div class="lbl">Paid</div><h2>Meta ads</h2></div><p>Four concepts in every placement size. Lead with the ticket concept, which matches the landing page.</p></div>
+    <div class="setup">
+      <div><b>Objective</b>Leads → website conversions, optimized for <code>CompleteRegistration</code></div>
+      <div><b>Ad sets</b>English and Spanish, both targeting NorCal, age 24–60, Advantage+ audience</div>
+      <div><b>Geo</b>Sacramento, Roseville, Elk Grove, Stockton, Modesto, SF, Oakland, San Jose, Fremont, Santa Rosa, Redding, Chico, Fresno (+25 mi)</div>
+      <div><b>Placements</b>Advantage+. Upload 1:1, 4:5, 9:16, and 1.91:1 so every spot gets a native crop</div>
+      <div><b>Retargeting</b>After ~500 visits: people who didn't register, plus 50%+ video viewers → "Last call"</div>
+      <div><b>UTM</b><code>?utm_source=meta&amp;utm_medium=paid&amp;utm_campaign=sell-like-a-leader&amp;utm_content={{ad.name}}</code></div>
+    </div>
+    <div class="gallery" data-imgs="meta"></div>
+    <div class="copies" data-copy="meta"></div>
+  </section>
+
+  <section id="spanish">
+    <div class="sec-head"><div><div class="lbl">Audience</div><h2>Spanish versions</h2></div><p>For the Spanish ad set and posts. Always link to the page with <code>?lang=es</code> so it opens in Spanish.</p></div>
+    <div class="gallery" data-imgs="spanish"></div>
+    <div class="copies" data-copy="spanish"></div>
+  </section>
+
+  <section id="flyers">
+    <div class="sec-head"><div><div class="lbl">Print &amp; share</div><h2>Flyers</h2></div><p>A digital flyer for email and social, and an 8.5×11 print version (300 dpi PNG plus a print-ready PDF in the repo).</p></div>
+    <div class="gallery" data-imgs="flyers"></div>
+  </section>
+
+  <div class="foot">
+    <span>Source files: <span class="sel">github.com/ajneely8/Starvx-seminar-landing-page</span> → <span class="sel">creatives/png/</span></span>
+    <span>Elias@sarvx.io · (916) 500-8503</span>
+  </div>
+</div>
+
+<script>
+const P = 'creatives/png/';
+const IMGS = {
+  eventbrite: [['Event banner', 'eventbrite-banner-2160x1080.png', '2160×1080 · 2:1']],
+  facebook: [
+    ['Event cover', 'facebook-event-cover-1920x1005.png', '1920×1005'],
+    ['Feed · square', 'facebook-feed-square-1080x1080.png', '1080×1080'],
+    ['Feed · portrait', 'facebook-feed-portrait-1080x1350.png', '1080×1350'],
+    ['Story', 'facebook-story-1080x1920.png', '1080×1920'],
+  ],
+  linkedin: [
+    ['Event cover', 'linkedin-event-cover-1776x444.png', '1776×444 · 4:1'],
+    ['Profile banner', 'linkedin-profile-banner-1584x396.png', '1584×396'],
+    ['Feed image', 'linkedin-feed-1200x627.png', '1200×627'],
+    ['Square post', 'linkedin-square-1200x1200.png', '1200×1200'],
+  ],
+  meta: [
+    ['D · Ticket · square', 'meta-ad-D-square-1080x1080.png', '1:1'], ['D · Ticket · feed', 'meta-ad-D-feed-1080x1350.png', '4:5'],
+    ['D · Ticket · stories', 'meta-ad-D-story-reels-1080x1920.png', '9:16'], ['D · Ticket · landscape', 'meta-ad-D-landscape-1200x628.png', '1.91:1'],
+    ['A · Trainer · square', 'meta-ad-A-square-1080x1080.png', '1:1'], ['A · Trainer · feed', 'meta-ad-A-feed-1080x1350.png', '4:5'],
+    ['A · Trainer · stories', 'meta-ad-A-story-reels-1080x1920.png', '9:16'], ['A · Trainer · landscape', 'meta-ad-A-landscape-1200x628.png', '1.91:1'],
+    ['B · Lead the conversation · square', 'meta-ad-B-square-1080x1080.png', '1:1'], ['B · feed', 'meta-ad-B-feed-1080x1350.png', '4:5'],
+    ['B · stories', 'meta-ad-B-story-reels-1080x1920.png', '9:16'], ['B · landscape', 'meta-ad-B-landscape-1200x628.png', '1.91:1'],
+    ['C · Five skills · square', 'meta-ad-C-square-1080x1080.png', '1:1'], ['C · feed', 'meta-ad-C-feed-1080x1350.png', '4:5'],
+    ['C · stories', 'meta-ad-C-story-reels-1080x1920.png', '9:16'],
+  ],
+  spanish: [
+    ['D · Boleto · cuadrado', 'ES-meta-ad-D-square-1080x1080.png', '1:1'], ['D · Boleto · feed', 'ES-meta-ad-D-feed-1080x1350.png', '4:5'],
+    ['D · Boleto · historias', 'ES-meta-ad-D-story-reels-1080x1920.png', '9:16'],
+    ['A · Instructor · cuadrado', 'ES-meta-ad-A-square-1080x1080.png', '1:1'], ['A · Instructor · feed', 'ES-meta-ad-A-feed-1080x1350.png', '4:5'],
+    ['A · Instructor · historias', 'ES-meta-ad-A-story-reels-1080x1920.png', '9:16'],
+    ['Portada de evento', 'ES-facebook-event-cover-1920x1005.png', '1920×1005'],
+  ],
+  flyers: [
+    ['Digital flyer', 'flyer-digital-1080x1350.png', '1080×1350'],
+    ['Print flyer (letter)', 'flyer-print-letter-2550x3300.png', '8.5×11 in · 300 dpi'],
+  ],
+};
+
+// [label, for/where, text, spanish?]
+const COPY = {
+  eventbrite: [
+    ['Title', '≤75 characters', 'Sell Like a Leader: Free Virtual Sales Training | Northern California'],
+    ['Summary', '≤140 characters', 'Free live training for NorCal salespeople & business owners. Learn a five-step process built on one idea: great selling is leadership.'],
+    ['Description', 'Main listing', `Great selling is leadership.
+
+Most sales training teaches scripts and pressure. This free, live virtual training teaches you to lead the conversation: prepare well, listen closely, ask better questions, and help buyers reach a clear decision they feel good about.
+
+Built for salespeople and business owners across Northern California: car sales, insurance, coaching, consulting, service businesses, cold calling, and door-to-door.
+
+What you'll learn
+• The art of sales: understand people, ask better questions, and help buyers decide clearly
+• Negotiation psychology: priorities, uncertainty, and tradeoffs, so stalled deals start moving
+• Ethical selling: honest recommendations, real fit, and respect for the buyer's decision
+• Sales leadership: earn confidence through preparation, listening, and a clear process
+• Objection prevention: handle concerns throughout the conversation, not just at the close
+
+You'll leave with the complete five-step sales process, applied through real examples, live exercises, and selected audience scenarios.
+
+Day 2 VIP workshop ($99, 100 seats): join Elias live in a smaller group, ask your questions directly, and bring a real sales issue to work through with personal feedback.
+
+Your trainer: Elias Saracco, Founder of SarvX Group.
+
+📅 December 2026 · 💻 Live online · 🎟 500 free seats · 100 VIP seats
+Questions? Elias@sarvx.io · (916) 500-8503`],
+  ],
+  facebook: [
+    ['Post 1 · Announcement', 'feed-square', `Most sales training teaches you to chase the close. I teach the opposite: lead the conversation, and the close takes care of itself.
+
+This December I'm hosting a free, live virtual sales training for salespeople and business owners across Northern California. Car sales, insurance, coaching, consulting, service businesses, cold callers, door-to-door.
+
+500 free seats. You'll leave with my complete five-step sales process. 👇
+[landing page URL]`],
+    ['Post 2 · The ticket', 'meta-ad-D-feed', `Your free ticket is waiting. 🎟
+
+Day 1 is the free live training, with 500 seats.
+Day 2 is a smaller VIP workshop ($99, 100 seats) where you bring a real sales issue and we work through it together.
+
+Grab yours: [landing page URL]`],
+    ['Post 3 · Teaching', 'feed-portrait', `Objections at the close usually aren't objections. They're questions nobody answered earlier.
+
+The best reps prevent objections by handling concerns throughout the conversation. That's one of five skills I'm teaching live and free this December:
+1. The art of sales · 2. Negotiation psychology · 3. Ethical selling · 4. Sales leadership · 5. Objection prevention
+
+[landing page URL]`],
+    ['Post 4 · Story (organic only)', 'photo of Elias', `When I grew my agency to $100,000 a month, the breakthrough wasn't a better script. It was realizing that great selling is leadership: preparation, listening, and a clear process the buyer can trust. I'm sharing the lessons, including what didn't work, this December. Free. [landing page URL]
+
+Results are my own and are not typical or guaranteed.`],
+    ['Post 5 · VIP', 'meta-ad-D-square', `VIP is $99 and gets you into the Day 2 workshop. Jump on live, ask me anything, and bring a real sales issue: a stalled deal, a tough objection, or a call that keeps going sideways. 100 seats. [landing page URL]`],
+    ['Post 6 · Last call', 'story + feed', `Tomorrow. Free, live, virtual. Bring a notepad. You'll leave with a five-step process you can use on your next call. [landing page URL]`],
+  ],
+  linkedin: [
+    ['Event description', 'LinkedIn event', 'A free, live virtual sales training for salespeople, founders, and sales leaders across Northern California this December. Learn a five-step process built on one idea: great selling is leadership. Day 1 is free (500 seats). Day 2 is a $99 VIP implementation workshop (100 seats). Hosted by Elias Saracco, Founder of SarvX Group.'],
+    ['Post 1 · Announcement', 'linkedin-feed', `Great selling is leadership. Buyers don't follow pressure. They follow someone who's prepared, listens well, and has a clear process.
+
+This December I'm hosting a free, live virtual training for salespeople and business owners across Northern California. I'll walk through my complete five-step sales process and apply it to real audience scenarios. 500 free seats. [landing page URL]`],
+    ['Post 2 · Point of view', 'text only', `Unpopular opinion: most objection-handling training teaches the wrong skill.
+
+If a concern shows up for the first time at the close, it's not an objection. It's a question nobody asked in discovery.
+
+I'm teaching how to prevent them in a free live training this December. [landing page URL]`],
+    ['Post 3 · Sales leaders', 'linkedin-square', `Sales leaders: your team doesn't need another script. It needs a process it will actually use.
+
+Five skills, one process, free and live this December. Bring your team. Owners can stay after for the $99 Day 2 workshop and bring a real sales issue. [landing page URL]`],
+    ['DM invite', '1st-degree, 20–30/day', `Hey [First Name], I'm running a free virtual sales training for NorCal salespeople and owners this December. It's a practical five-step process, not a pitch-fest. Thought of you given your work at [Company]. Want the link?`],
+  ],
+  meta: [
+    ['D · Ticket · primary text', 'Lead concept · CTA: Sign Up', `Your free ticket is waiting. 🎟 Free live virtual sales training for Northern California salespeople and business owners, this December. 500 free seats, plus 100 VIP seats for a hands-on Day 2 workshop.`],
+    ['D · Headline + description', 'All D sizes', `Headline: Claim Your Free Ticket
+Description: Live online · December 2026`],
+    ['A · Trainer · primary text', 'CTA: Sign Up', `Great selling is leadership. Join a free, live virtual sales training for Northern California salespeople and business owners, and leave with a complete five-step sales process. December 2026.
+
+Headline: Free Virtual Sales Training · December`],
+    ['B · Lead the conversation', 'CTA: Sign Up', `Chasing the close creates pressure. Leading the conversation creates decisions. Elias Saracco (Founder, SarvX Group) is teaching a free live virtual training this December on how the best salespeople lead. Free general admission. VIP Day 2 workshop $99.
+
+Headline: Lead the Conversation. Free Training.`],
+    ['C · Five skills', 'CTA: Sign Up', `1️⃣ The art of sales 2️⃣ Negotiation psychology 3️⃣ Ethical selling 4️⃣ Sales leadership 5️⃣ Objection prevention. One process that ties them together, taught live and free this December.
+
+Headline: 5 Skills. 1 Process. Free.`],
+    ['Retargeting · Last call', 'Visitors who didn\'t register', `Your free seat is still open. Sell Like a Leader goes live soon, and seats are counting down on the page. Grab yours before we start.
+
+Headline: Seats Are Going`],
+  ],
+  spanish: [
+    ['D · Boleto · texto principal', 'CTA: Registrarte', `Tu boleto gratis te está esperando. 🎟 Capacitación de ventas gratis, en vivo y virtual para vendedores y dueños de negocios del Norte de California, este diciembre. 500 lugares gratis y 100 lugares VIP para el taller del Día 2.
+
+Título: Reclama tu boleto gratis`, true],
+    ['A · Instructor · texto principal', 'CTA: Registrarte', `Vender bien es liderar. Únete a una capacitación de ventas gratis, en vivo y virtual para vendedores y dueños de negocios del Norte de California, y llévate un proceso de ventas completo de cinco pasos. Diciembre 2026.
+
+Título: Capacitación de ventas gratis · Diciembre`, true],
+    ['Publicación orgánica', 'ES-meta-ad-D-feed', `Tu boleto gratis te está esperando. 🎟
+
+Este diciembre: capacitación de ventas gratis, en vivo y virtual para vendedores y dueños de negocios del Norte de California. Día 1 gratis (500 lugares). Taller VIP del Día 2 por $99 (100 lugares), donde traes un reto de ventas real.
+
+Regístrate: [landing page URL]?lang=es`, true],
+    ['Retargeting · Última llamada', 'Visitantes sin registro', `Tu lugar gratis sigue disponible. Resérvalo antes de que empecemos.`, true],
+  ],
+};
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+document.querySelectorAll('[data-imgs]').forEach(g => {
+  g.innerHTML = IMGS[g.dataset.imgs].map(([label, file, size]) => `
+    <figure><div class="img"><img src="${P + file}" alt="${esc(label)}" loading="lazy"></div>
+      <figcaption><span class="size">${esc(size)}</span><b>${esc(label)}</b><code>${esc(file)}</code></figcaption></figure>`).join('');
+});
+document.querySelectorAll('[data-copy]').forEach(g => {
+  g.innerHTML = COPY[g.dataset.copy].map(([label, forWhat, text, es], i) => `
+    <div class="copy"><div class="copy-top"><div><span class="lbl">${esc(label)}</span>${es ? '<span class="lang-es">ES</span>' : ''}<div class="for">${esc(forWhat)}</div></div>
+      <button class="cbtn" type="button" id="copy-${g.dataset.copy}-${i}">Copy</button></div><pre>${esc(text)}</pre></div>`).join('');
+});
+document.addEventListener('click', async e => {
+  const b = e.target.closest('.cbtn'); if (!b) return;
+  const pre = b.closest('.copy').querySelector('pre');
+  try { await navigator.clipboard.writeText(pre.textContent); b.textContent = 'Copied'; b.classList.add('done'); }
+  catch (err) { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press Ctrl+C'; }
+  setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('done'); }, 2200);
+});
+</script>

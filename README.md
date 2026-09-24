@@ -10,7 +10,8 @@ Free virtual sales training for Elias Saracco (SarvX Group), styled to match the
 | `index.html` | Landing page: video, topics, two-day format with free and $99 tickets, trainer, owner section, registration form, FAQ, disclaimers. |
 | `brand-kit/index.html` + `SarvX-Brand-Kit.pdf` | SarvX brand guidelines: logo, colors, type, voice, and design elements. |
 | `brand-kit/logos/` | Official SarvX logo files from sarvx.io, used as supplied (not recolored). |
-| `marketing-copy.md` | Eventbrite, Facebook, LinkedIn, Meta ads, and the video script. |
+| `marketing-copy.md` | Eventbrite, Facebook, LinkedIn, Meta ads (EN + ES), flyers, and the video script. |
+| `marketing-package.html` | One page with every image and copy-ready text, for handing to the client. |
 | `creatives/creative.html` + `render.mjs` | One template covers every image size. `node creatives/render.mjs` rebuilds all PNGs and the flyer PDF. |
 | `creatives/png/` | Finished images. |
 | `assets/` | Original SarvX logo, favicon, Elias headshot (`elias.jpg`), and the architecture photo. |
