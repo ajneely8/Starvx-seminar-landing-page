@@ -49,6 +49,6 @@ Free virtual sales training for Elias Saracco (SarvX Group), styled to match the
 - To turn the popups off, set `SIGNUP_POPUPS = false` in `index.html`.
 
 ## Light / dark mode
-- A moon/sun button in the top bar switches the page between light and a futuristic dark mode (deep navy, glowing grid, glass cards, neon-blue accents). The choice is remembered per visitor.
+- A moon/sun button in the top bar switches the page between light and a clean dark mode (charcoal-navy, no glow effects, SarvX blue as the only accent). The choice is remembered per visitor.
 - Light is the default. Adding `?theme=dark` to a link opens the page in dark mode, which is useful for dark-themed ads or sharing.
 - Colors live in theme variables at the top of the `<style>` block. Dark overrides are under `html[data-theme="dark"]`.
