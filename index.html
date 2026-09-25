@@ -99,8 +99,24 @@ html[data-theme="dark"]{
   --tear:#3A4150; --stub-a:#181C24; --stub-b:#13161D; --vstub-a:#18202E; --vstub-b:#141B28; --glow:transparent;
 }
 html[data-theme="dark"] body{background:var(--paper)}
+/* animated backdrop (dark only): drifting muted clouds + slow star field, behind all content */
+html[data-theme="dark"] body::before,html[data-theme="dark"] body::after{content:"";position:fixed;pointer-events:none;z-index:-1}
+html[data-theme="dark"] body::before{inset:-25%;
+  background:radial-gradient(closest-side at 25% 30%,rgba(61,131,240,.13),transparent),
+             radial-gradient(closest-side at 78% 22%,rgba(140,150,190,.10),transparent),
+             radial-gradient(closest-side at 62% 78%,rgba(61,131,240,.09),transparent),
+             radial-gradient(closest-side at 15% 85%,rgba(110,120,160,.08),transparent);
+  filter:blur(30px);animation:bgDrift 38s ease-in-out infinite alternate}
+html[data-theme="dark"] body::after{inset:0;
+  background-image:radial-gradient(rgba(220,228,245,.16) 1px,transparent 1.6px),radial-gradient(rgba(220,228,245,.08) 1px,transparent 1.6px);
+  background-size:120px 120px,64px 64px;background-position:0 0,32px 40px;
+  -webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.35));mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.35));
+  animation:bgStars 140s linear infinite}
+@keyframes bgDrift{0%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}50%{transform:translate3d(4%,-3%,0) rotate(8deg) scale(1.08)}100%{transform:translate3d(-4%,3%,0) rotate(-6deg) scale(1.02)}}
+@keyframes bgStars{to{background-position:-1200px 600px,-704px 424px}}
+@media (prefers-reduced-motion:reduce){html[data-theme="dark"] body::before,html[data-theme="dark"] body::after{animation:none}}
 html[data-theme="dark"] nav{border-bottom-color:var(--line-soft)}
-html[data-theme="dark"] .alt{background:var(--paper-2)}
+html[data-theme="dark"] .alt{background:rgba(17,20,25,.55)}
 html[data-theme="dark"] .accent{color:#5B95F0}
 html[data-theme="dark"] .btn.primary,html[data-theme="dark"] .btn.signal,html[data-theme="dark"] .lang button[aria-pressed="true"]{background:#1F63D0}
 html[data-theme="dark"] .btn.primary:hover,html[data-theme="dark"] .btn.signal:hover{background:rgba(31,99,208,.86)}
@@ -110,10 +126,10 @@ html[data-theme="dark"] .big-cta{background:#1F63D0;box-shadow:inset 0 0 0 1px r
 html[data-theme="dark"] .big-cta:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
 html[data-theme="dark"] .frame{box-shadow:0 0 0 1px var(--line),0 30px 70px -30px #000}
 html[data-theme="dark"] .vsl::before,html[data-theme="dark"] .vsl::after{border-color:var(--slate)}
-html[data-theme="dark"] .aud{background:var(--paper);border-color:var(--line-soft)}
+html[data-theme="dark"] .aud{background:rgba(11,13,18,.4);border-color:var(--line-soft)}
 html[data-theme="dark"] .steps,html[data-theme="dark"] form{background:var(--surface);border-color:var(--line);box-shadow:0 30px 60px -45px #000}
 html[data-theme="dark"] .how-list .ic,html[data-theme="dark"] .badge{background:var(--surface);border-color:var(--line)}
-html[data-theme="dark"] .days{background:var(--paper-2);border-color:var(--line-soft)}
+html[data-theme="dark"] .days{background:rgba(17,20,25,.6);border-color:var(--line-soft)}
 html[data-theme="dark"] .ticket-wrap{filter:drop-shadow(0 0 1px rgba(255,255,255,.22)) drop-shadow(0 24px 40px rgba(0,0,0,.55))}
 html[data-theme="dark"] .ticket-wrap:hover{filter:drop-shadow(0 0 1px rgba(255,255,255,.3)) drop-shadow(0 34px 50px rgba(0,0,0,.6))}
 html[data-theme="dark"] .band{background:var(--deep);border-bottom:1px solid var(--line-soft)}
