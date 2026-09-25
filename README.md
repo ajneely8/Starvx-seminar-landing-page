@@ -47,3 +47,8 @@ Free virtual sales training for Elias Saracco (SarvX Group), styled to match the
 - Only real registrations appear. Nothing is made up, and if nobody has signed up, no popup shows.
 - It uses ntfy.sh, a free service with no account. The topic is in `FEED` in `index.html`. Only the first name, last initial, and ticket type are sent, and they're kept for 12 hours.
 - To turn the popups off, set `SIGNUP_POPUPS = false` in `index.html`.
+
+## Light / dark mode
+- A moon/sun button in the top bar switches the page between light and a futuristic dark mode (deep navy, glowing grid, glass cards, neon-blue accents). The choice is remembered per visitor.
+- Light is the default. Adding `?theme=dark` to a link opens the page in dark mode, which is useful for dark-themed ads or sharing.
+- Colors live in theme variables at the top of the `<style>` block. Dark overrides are under `html[data-theme="dark"]`.
